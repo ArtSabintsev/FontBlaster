@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FontBlaster"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "Programmatically load custom fonts into your iOS app."
 
   s.description  = <<-DESC
@@ -12,7 +12,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
   s.license      = "MIT"
   s.authors      = { "Arthur Sabintsev" => "arthur@sabintsev.com"}
   s.platform     = :ios, "8.0"
-  s.source       = { :git => "https://github.com/ArtSabintsev/FontBlaster.git", :tag => "1.0.0" }
+  s.source       = { :git => "https://github.com/ArtSabintsev/FontBlaster.git", :tag => s.version.to_s }
   s.source_files = 'FontBlaster.swift'
   s.requires_arc = true
 
