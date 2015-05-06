@@ -7,7 +7,12 @@
 
 Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's NSBundles with one line of code. 
 
-### Changelog (v1.0.2)
+### Changelog 
+#### v1.0.3
+- Now there's only one method, `blast(_:)`, which defaults to `NSBundle.mainBundle()` if no arguments are passed.
+	- Thanks to a comment made by [Stuart Moore](stuartjmoore). 
+
+#### v1.0.2
 - Improved font loading (Thanks to [Nate Cook](https://github.com/natecook1000) in [PR#1](https://github.com/ArtSabintsev/FontBlaster/pull/1))
 
 ### Features
@@ -37,13 +42,13 @@ pod 'FontBlaster'
 Typically, all fonts are automatically found in `NSBundle.mainBundle()`. Even if you have a custom bundle, it's usually lodged inside of the `mainBundle.` Therefore, to load all the fonts in your application, irrespective of the bundle it's in, simply call:
 
 ```Swift
-FontBlaster.blast()
+FontBlaster.blast() // Defaults to NSBundle.mainBundle() if no arguments are passed
 ```
 
-If your fonts failed to load, or if you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `NSBundle` in the overloaded `blast(_:)` method:
+If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `NSBundle` in the `blast(_:)` method:
 
 ```Swift
-FontBlaster.blast(_:) // Takes one argument of type NSBundle
+FontBlaster.blast(_:) // Takes one argument of type NSBundle, or as mentioned above, to NSBundle.mainBundle() if no arguments are passed
 ```
 
 To turn on console debug statements, simply set `debugEnabled() = true` **before** calling either `blast()` method:

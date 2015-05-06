@@ -28,8 +28,7 @@ private enum SupportedFontExtensions: String
 /**
     The FontBlaster Class.
 
-    Only two class methods can be accessed
-        - blast()
+    Only one class method can be accessed
         - blast(_:)
     Only one class variable can be accessed and modified
         - debugEnabled
@@ -48,18 +47,9 @@ class FontBlaster
     static var debugEnabled = false
     
     /**
-        Load all fonts found in NSBundle.mainBundle() and all first-level bundles found within the main bundle.
+        Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
-    class func blast() {
-        let path = NSBundle.mainBundle().bundlePath
-        loadFontsForBundleWithPath(path)
-        loadFontsFromBundlesFoundInBundle(path)
-    }
-    
-    /**
-        Load all fonts found in a custom bundle
-    */
-    class func blast(bundle: NSBundle) {
+    class func blast(bundle: NSBundle = NSBundle.mainBundle()) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
