@@ -125,7 +125,7 @@ private extension FontBlaster
 
         if let
             fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension),
-            data = NSData(contentsOfURL: fontFileURL, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
+            data = NSData(contentsOfURL: fontFileURL, options: .DataReadingMappedIfSafe, error: nil)
         {
             let provider = CGDataProviderCreateWithCFData(data)
             let font = CGFontCreateWithDataProvider(provider)

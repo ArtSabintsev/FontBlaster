@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "FontBlaster"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "Programmatically load custom fonts into your iOS app."
 
   s.description  = <<-DESC
