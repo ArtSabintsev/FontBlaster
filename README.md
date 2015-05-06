@@ -14,7 +14,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 - [x] CocoaPods Support
 - [x] Automatically imports fonts from `NSBundle.mainbundle()`
 - [x] Automatically imports fonts from bundles inside your `mainBundle`
-- [x] Able to imports fonts from remote bundles
+- [x] Able to import fonts from remote bundles
 - [x] Sample Project
 
 ### Installation Instructions
