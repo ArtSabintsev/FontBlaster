@@ -19,20 +19,15 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 ### Installation Instructions
 
-#### CocoaPods Installation
+#### CocoaPods Installation (iOS 8+)
 ```ruby
 pod 'FontBlaster'
 ```
 
 - Add `import FontBlaster` to any `.Swift` file that references Siren via a CocoaPods installation.
 - Requires [CocoaPods 0.36 prerelease](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) or later
-- Only for apps with a minimum deployment target of iOS 8.0 or later
 
-    > CocoaPods does not support pods written in Swift on iOS 7. For more information, please see [this issue](https://github.com/CocoaPods/swift/issues/22).
-  
-If your app needs to support iOS 7, use **Manual Installation**.
-
-#### Manual Installation
+#### Manual Installation (iOS 7+)
 
 1. [Download FontBlaster](//github.com/ArtSabintsev/FontBlaster/archive/master.zip).
 2. Copy the `FontBlaster.swift` into your project.
@@ -59,7 +54,7 @@ FontBlaster.blast()
 ```
 
 ### Sample Project
-A Sample iOS project is included in the repo. When you launch the app, all fonts are configured to load custom fonts, but don't actually display them *until* you push the button. After pushign the button, **FontBlaster** imports your fonts and updates all the fonts automatically.
+A Sample iOS project is included in the repo. When you launch the app, all fonts are configured to load custom fonts, but don't actually display them *until* you push the button. After pushing the button, **FontBlaster** imports your fonts and redraws the view.
 
 ### Special Thanks
 This project builds upon an old solution that [Marco Arment](http://twitter.com/marcoarment) proposed and wrote about on his [blog](http://www.marco.org/2012/12/21/ios-dynamic-font-loading).
