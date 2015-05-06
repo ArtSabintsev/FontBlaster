@@ -61,5 +61,8 @@ FontBlaster.blast()
 ### Sample Project
 A Sample iOS project is included in the repo. When you launch the app, all fonts are configured to load custom fonts, but don't actually display them *until* you push the button. After pushign the button, **FontBlaster** imports your fonts and updates all the fonts automatically.
 
+### Special Thanks
+This project builds upon an old solution that [Marco Arment](http://twitter.com/marcoarment) proposed and wrote about on his [blog](www.marco.org/2012/12/21/ios-dynamic-font-loading).
+
 ### Created and maintained by
 [Arthur Ariel Sabintsev](http://www.sabintsev.com/)
