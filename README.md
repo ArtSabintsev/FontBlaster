@@ -48,7 +48,7 @@ FontBlaster.blast() // Defaults to NSBundle.mainBundle() if no arguments are pas
 If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `NSBundle` in the `blast(_:)` method:
 
 ```Swift
-FontBlaster.blast(_:) // Takes one argument of type NSBundle, or as mentioned above, to NSBundle.mainBundle() if no arguments are passed
+FontBlaster.blast(_:) // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed
 ```
 
 To turn on console debug statements, simply set `debugEnabled() = true` **before** calling either `blast()` method:
