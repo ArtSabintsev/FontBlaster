@@ -122,22 +122,23 @@ private extension FontBlaster
         let fontPath: FontPath = font.0
         let fontName: FontPath = font.1
         let fontExtension: FontPath = font.2
-        let fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension)
-        
-        var dataError: NSError?
-        let data = NSData(contentsOfURL: fontFileURL!, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: &dataError)
-        if let data = data {
+
+        if let
+            fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension),
+            data = NSData(contentsOfURL: fontFileURL, options: NSDataReadingOptions.DataReadingMappedIfSafe, error: nil)
+        {
             let provider = CGDataProviderCreateWithCFData(data)
             let font = CGFontCreateWithDataProvider(provider)
-            var fontError: Unmanaged<CFErrorRef>?
-            if CTFontManagerRegisterGraphicsFont(font, &fontError) == true {
-                if let fontError = fontError {
-                    let errorDescription = CFErrorCopyDescription(fontError.takeRetainedValue())
-                    printStatus("Failed to load font: \(errorDescription)")
-                } else {
-                    let loadedFont = CGFontCopyPostScriptName(font)
-                    printStatus("Successfully loaded font: '\(loadedFont)'.")
-                }
+            
+            var fontError: Unmanaged<CFError>?
+            if CTFontManagerRegisterGraphicsFont(font, &fontError) {
+                let loadedFont = CGFontCopyPostScriptName(font)
+                printStatus("Successfully loaded font: '\(loadedFont)'.")
+            } else if let fontError = fontError?.takeRetainedValue() {
+                let errorDescription = CFErrorCopyDescription(fontError)
+                printStatus("Failed to load font '\(fontName)': \(errorDescription)")
+            } else {
+                printStatus("Failed to load font '\(fontName)'.")
             }
         }
     }
