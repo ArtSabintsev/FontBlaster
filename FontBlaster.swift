@@ -113,17 +113,10 @@ private extension FontBlaster
         let fontName: FontPath = font.1
         let fontExtension: FontPath = font.2
 
-        if let
-            fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension),
-            data = NSData(contentsOfURL: fontFileURL, options: .DataReadingMappedIfSafe, error: nil)
-        {
-            let provider = CGDataProviderCreateWithCFData(data)
-            let font = CGFontCreateWithDataProvider(provider)
-            
+        if let fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension) {
             var fontError: Unmanaged<CFError>?
-            if CTFontManagerRegisterGraphicsFont(font, &fontError) {
-                let loadedFont = CGFontCopyPostScriptName(font)
-                printStatus("Successfully loaded font: '\(loadedFont)'.")
+            if CTFontManagerRegisterFontsForURL(fontFileURL, CTFontManagerScope.Process, &fontError) {
+                printStatus("Successfully loaded font: '\(fontName)'.")
             } else if let fontError = fontError?.takeRetainedValue() {
                 let errorDescription = CFErrorCopyDescription(fontError)
                 printStatus("Failed to load font '\(fontName)': \(errorDescription)")
