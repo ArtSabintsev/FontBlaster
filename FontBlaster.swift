@@ -95,8 +95,17 @@ private extension FontBlaster
         } else {
             let typedContents = contents as! [NSString]
             for item in typedContents {
-                if item.containsString(".bundle") {
-                    let fullPath = path.stringByAppendingPathComponent(item as! String)
+                var fullPath: String?
+                if item.respondsToSelector(Selector("containsString:")) { // iOS 8+
+                    if item.containsString(".bundle") {
+                        fullPath = path.stringByAppendingPathComponent(item as! String)
+                    }
+                } else { // iOS 7
+                    if item.rangeOfString(".bundle").location != NSNotFound {
+                        fullPath = path.stringByAppendingPathComponent(item as! String)
+                    }
+                }
+                if let fullPath = fullPath {
                     loadFontsForBundleWithPath(fullPath)
                 }
             }
@@ -139,8 +148,17 @@ private extension FontBlaster
     class func fontsFromPath(#path: String, contents: [NSString]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
-            if fontName.containsString(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.containsString(SupportedFontExtensions.OpenTypeFont.rawValue) {
-                let parsedFont = fontFromName(fontName as! String)
+            var parsedFont: (FontName, FontExtension)?
+            if fontName.respondsToSelector(Selector("containsString:")) { // iOS 8+
+                if fontName.containsString(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.containsString(SupportedFontExtensions.OpenTypeFont.rawValue) {
+                    parsedFont = fontFromName(fontName as! String)
+                }
+            } else { // iOS 7
+                if (fontName.rangeOfString(SupportedFontExtensions.TrueTypeFont.rawValue).location != NSNotFound) || (fontName.rangeOfString(SupportedFontExtensions.OpenTypeFont.rawValue).location != NSNotFound) {
+                    parsedFont = fontFromName(fontName as! String)
+                }
+            }
+            if let parsedFont = parsedFont {
                 let font: Font = (path, parsedFont.0, parsedFont.1)
                 fonts.append(font)
             }
