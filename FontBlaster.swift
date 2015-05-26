@@ -33,7 +33,7 @@ private enum SupportedFontExtensions: String
     Only one class variable can be accessed and modified
         - debugEnabled
 */
-class FontBlaster
+public class FontBlaster
 {
     // Typealiases to better handle of the different aspects of loading a font
     private typealias FontPath = String
@@ -44,12 +44,12 @@ class FontBlaster
     /** 
         Used to toggle debug println() statements
     */
-    static var debugEnabled = false
+    public static var debugEnabled = false
     
     /**
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
-    class func blast(bundle: NSBundle = NSBundle.mainBundle()) {
+    public class func blast(bundle: NSBundle = NSBundle.mainBundle()) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
