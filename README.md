@@ -26,7 +26,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 pod 'FontBlaster'
 ```
 
-- Add `import FontBlaster` to any `.Swift` file that references Siren via a CocoaPods installation.
+- Add `import FontBlaster` to any `.Swift` file that references FontBlaster via a CocoaPods installation.
 - Requires [CocoaPods 0.36 prerelease](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) or later
 
 #### Manual Installation (iOS 7+)
