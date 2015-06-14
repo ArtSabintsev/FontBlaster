@@ -24,7 +24,7 @@
 		8E7CBEC71AF9BDE800009618 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBC1AF9BDE800009618 /* OpenSans-Regular.ttf */; };
 		8E7CBEC81AF9BDE800009618 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBD1AF9BDE800009618 /* OpenSans-Semibold.ttf */; };
 		8E7CBEC91AF9BDE800009618 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBE1AF9BDE800009618 /* OpenSans-SemiboldItalic.ttf */; };
-		8E7CBECB1AF9BFA200009618 /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */; };
+		A73783071B2DB73400EFD33B /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73783061B2DB73400EFD33B /* FontBlaster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,7 @@
 		8E7CBEBC1AF9BDE800009618 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		8E7CBEBD1AF9BDE800009618 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		8E7CBEBE1AF9BDE800009618 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontBlaster.swift; path = ../../FontBlaster.swift; sourceTree = "<group>"; };
+		A73783061B2DB73400EFD33B /* FontBlaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontBlaster.swift; path = ../../FontBlaster/FontBlaster.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 		8E7CBE8D1AF9BD7200009618 /* Font Blaster Sample Project */ = {
 			isa = PBXGroup;
 			children = (
-				8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */,
+				A73783061B2DB73400EFD33B /* FontBlaster.swift */,
 				8E7CBEB21AF9BDCA00009618 /* Models */,
 				8E7CBEB11AF9BDC400009618 /* View Controllers */,
 				8E7CBEB01AF9BDBD00009618 /* Views */,
@@ -291,7 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E7CBECB1AF9BFA200009618 /* FontBlaster.swift in Sources */,
+				A73783071B2DB73400EFD33B /* FontBlaster.swift in Sources */,
 				8E7CBE931AF9BD7200009618 /* ViewController.swift in Sources */,
 				8E7CBE911AF9BD7200009618 /* AppDelegate.swift in Sources */,
 			);
