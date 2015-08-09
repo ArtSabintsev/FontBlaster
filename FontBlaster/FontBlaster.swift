@@ -103,11 +103,11 @@ private extension FontBlaster
                 var fullPath: String?
                 if item.respondsToSelector(Selector("containsString:")) { // iOS 8+
                     if item.containsString(".bundle") {
-                        fullPath = path.stringByAppendingPathComponent(item as String)
+                        fullPath = path.stringByAppendingString(item as String)
                     }
                 } else { // iOS 7
                     if item.rangeOfString(".bundle").location != NSNotFound {
-                        fullPath = path.stringByAppendingPathComponent(item as String)
+                        fullPath = path.stringByAppendingString(item as String)
                     }
                 }
                 if let fullPath = fullPath {
@@ -179,7 +179,7 @@ private extension FontBlaster
         - returns: A tuple with the font's name and extension.
     */
     class func fontFromName(name: String) -> (FontName, FontExtension) {
-        let components = split(name.characters){$0 == "."}.map { String($0) }
+        let components = name.characters.split {$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
     
