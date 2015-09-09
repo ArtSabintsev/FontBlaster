@@ -5,15 +5,17 @@
 ---
 ### About
 
-Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's NSBundles with one line of code. 
+Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's NSBundles with one line of code.
 
-### Changelog 
+### Announcement
+The Swift 2.0 branch can be found [https://github.com/ArtSabintsev/FontBlaster/tree/swift2](https://github.com/ArtSabintsev/FontBlaster/tree/swift2).
+
+### Changelog
 #### 1.0.8
-- Added Carthage Support by sharing the main schema
+- Minor changes.
 
 ### Features
 - [x] CocoaPods Support
-- [x] Carthage Support
 - [x] Automatically imports fonts from `NSBundle.mainbundle()`
 - [x] Automatically imports fonts from bundles inside your `mainBundle`
 - [x] Able to import fonts from remote bundles
@@ -29,17 +31,12 @@ pod 'FontBlaster'
 - Add `import FontBlaster` to any `.Swift` file that references FontBlaster via a CocoaPods installation.
 - Requires [CocoaPods 0.36 prerelease](http://blog.cocoapods.org/Pod-Authors-Guide-to-CocoaPods-Frameworks/) or later
 
-#### Carthage Installation (iOS 8+)
-```ruby
-github "ArtSabintsev/FontBlaster"
-```
-
 #### Manual Installation (iOS 7+)
 
 1. [Download FontBlaster](//github.com/ArtSabintsev/FontBlaster/archive/master.zip).
 2. Copy the `FontBlaster.swift` into your project.
 
-### Setup Instructions	
+### Setup Instructions
 
 Typically, all fonts are automatically found in `NSBundle.mainBundle()`. Even if you have a custom bundle, it's usually lodged inside of the `mainBundle.` Therefore, to load all the fonts in your application, irrespective of the bundle it's in, simply call:
 
