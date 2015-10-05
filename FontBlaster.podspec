@@ -15,5 +15,4 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
   s.source       = { :git => "https://github.com/ArtSabintsev/FontBlaster.git", :tag => s.version.to_s }
   s.source_files = 'FontBlaster.swift'
   s.requires_arc = true
-
 end
