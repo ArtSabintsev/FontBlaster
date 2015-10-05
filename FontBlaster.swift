@@ -18,8 +18,7 @@ import CoreText
     - TrueTypeFont
     - OpenTypeFont
 */
-private enum SupportedFontExtensions: String
-{
+private enum SupportedFontExtensions: String {
     case TrueTypeFont = ".ttf"
     case OpenTypeFont = ".otf"
 }
@@ -33,8 +32,7 @@ private enum SupportedFontExtensions: String
     Only one class variable can be accessed and modified
         - debugEnabled
 */
-public class FontBlaster
-{
+public class FontBlaster {
     // Typealiases to better handle of the different aspects of loading a font
     private typealias FontPath = String
     private typealias FontName = String
@@ -57,8 +55,7 @@ public class FontBlaster
 }
 
 // MARK: Helpers (Font Loading)
-private extension FontBlaster
-{
+private extension FontBlaster {
     /**
         Loads all fonts found in a bundle.
     
@@ -131,8 +128,7 @@ private extension FontBlaster
 }
 
 // MARK: Helpers (Miscellaneous)
-private extension FontBlaster
-{
+private extension FontBlaster {
     /**
         Parses a font into its name and extension components.
         
@@ -144,15 +140,11 @@ private extension FontBlaster
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
-            if fontName.respondsToSelector(Selector("containsString:")) { // iOS 8+
-                if fontName.containsString(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.containsString(SupportedFontExtensions.OpenTypeFont.rawValue) {
-                    parsedFont = fontFromName(fontName as String)
-                }
-            } else { // iOS 7
-                if (fontName.rangeOfString(SupportedFontExtensions.TrueTypeFont.rawValue).location != NSNotFound) || (fontName.rangeOfString(SupportedFontExtensions.OpenTypeFont.rawValue).location != NSNotFound) {
-                    parsedFont = fontFromName(fontName as String)
-                }
+
+            if fontName.containsString(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.containsString(SupportedFontExtensions.OpenTypeFont.rawValue) {
+                parsedFont = fontFromName(fontName as String)
             }
+
             if let parsedFont = parsedFont {
                 let font: Font = (path, parsedFont.0, parsedFont.1)
                 fonts.append(font)
