@@ -28,16 +28,7 @@ pod 'FontBlaster'
 ```
 - Add `import FontBlaster` to any `.Swift` file that references FontBlaster via a CocoaPods installation.
 
-<<<<<<< HEAD
-#### Carthage Installation
-```ruby
-github "ArtSabintsev/FontBlaster"
-```
-
 #### Manual Installation
-=======
-#### Manual Installation (iOS 7+)
->>>>>>> master
 
 1. [Download FontBlaster](//github.com/ArtSabintsev/FontBlaster/archive/master.zip).
 2. Copy the `FontBlaster.swift` into your project.
