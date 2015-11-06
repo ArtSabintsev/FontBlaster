@@ -10,7 +10,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
   s.homepage     = "https://github.com/ArtSabintsev/FontBlaster"
   s.license      = "MIT"
-  s.authors      = { "Arthur Sabintsev" => "arthur@sabintsev.com"}
+  s.authors      = { "Arthur Ariel Sabintsev" => "arthur@sabintsev.com"}
   s.platform     = :ios, "8.0"
   s.source       = { :git => "https://github.com/ArtSabintsev/FontBlaster.git", :tag => s.version.to_s }
   s.source_files = 'FontBlaster.swift'
