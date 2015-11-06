@@ -47,7 +47,7 @@ public class FontBlaster {
     /**
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
-    public class func blast(bundle: NSBundle = NSBundle.mainBundle()) {
+    public static func blast(bundle: NSBundle = NSBundle.mainBundle()) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
@@ -82,7 +82,7 @@ private extension FontBlaster {
         
         - parameter path: The absolute path to the bundle.
     */
-    class func loadFontsFromBundlesFoundInBundle(path: String) {
+    static func loadFontsFromBundlesFoundInBundle(path: String) {
         do {
             let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
             for item in contents {
@@ -103,7 +103,7 @@ private extension FontBlaster {
     
         - parameter font: The font to load.
     */
-    class func loadFont(font: Font) {
+    static func loadFont(font: Font) {
         let fontPath: FontPath = font.0
         let fontName: FontPath = font.1
         let fontExtension: FontPath = font.2
@@ -136,7 +136,7 @@ private extension FontBlaster {
         - parameter contents: The contents of an NSBundle as an array of String objects.
         - returns: A tuple with the font's name and extension.
     */
-    class func fontsFromPath(path path: String, contents: [NSString]) -> [Font] {
+    static func fontsFromPath(path path: String, contents: [NSString]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
@@ -160,7 +160,7 @@ private extension FontBlaster {
         - parameter The: name of the font.
         - returns: A tuple with the font's name and extension.
     */
-    class func fontFromName(name: String) -> (FontName, FontExtension) {
+    static func fontFromName(name: String) -> (FontName, FontExtension) {
         let components = name.characters.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
@@ -170,7 +170,7 @@ private extension FontBlaster {
     
         - parameter The: status to print to the console.
     */
-    class func printStatus(status: String) {
+    static func printStatus(status: String) {
         if debugEnabled == true {
             print("[FontBlaster]: \(status)")
         }
