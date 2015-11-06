@@ -7,10 +7,6 @@
 
 Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's NSBundles with one line of code.
 
-## Changelog
-### 2.0.1
-- Removed unused code.
-
 ## Features
 - [x] CocoaPods Support
 - [x] Automatically imports fonts from `NSBundle.mainbundle()`
@@ -29,7 +25,7 @@ pod 'FontBlaster'
 ### Manual Installation
 
 1. [Download FontBlaster](//github.com/ArtSabintsev/FontBlaster/archive/master.zip).
-2. Copy the `FontBlaster.swift` into your project.
+2. Copy `FontBlaster.swift` into your project.
 
 ## Setup
 
