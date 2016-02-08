@@ -20,14 +20,16 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 ```ruby
 pod 'FontBlaster'
 ```
-- Add `import FontBlaster` to any `.Swift` file that references FontBlaster via a CocoaPods installation.
 
 ### Carthage
 ``` swift
 github "ArtSabintsev/FontBlaster"
 ```
 
-Add `import FontBlaster` to any `.Swift` file that references FontBlaster via a Carthage installation.
+### Swift Package Manager
+``` swift
+.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 2)
+```
 
 ### Manual
 
