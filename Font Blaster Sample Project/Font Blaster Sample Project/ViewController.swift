@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontBlaster
 
 class ViewController: UIViewController {
 
