@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5506979E1C685178008C5BAF /* FontBlaster.h in Headers */ = {isa = PBXBuildFile; fileRef = 5506979D1C685178008C5BAF /* FontBlaster.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		550697A21C685178008C5BAF /* FontBlaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5506979B1C685178008C5BAF /* FontBlaster.framework */; };
+		550697A31C685178008C5BAF /* FontBlaster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5506979B1C685178008C5BAF /* FontBlaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		550697A81C685181008C5BAF /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */; };
 		8E7CBE911AF9BD7200009618 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBE901AF9BD7200009618 /* AppDelegate.swift */; };
 		8E7CBE931AF9BD7200009618 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBE921AF9BD7200009618 /* ViewController.swift */; };
 		8E7CBE961AF9BD7200009618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBE941AF9BD7200009618 /* Main.storyboard */; };
@@ -24,10 +28,16 @@
 		8E7CBEC71AF9BDE800009618 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBC1AF9BDE800009618 /* OpenSans-Regular.ttf */; };
 		8E7CBEC81AF9BDE800009618 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBD1AF9BDE800009618 /* OpenSans-Semibold.ttf */; };
 		8E7CBEC91AF9BDE800009618 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEBE1AF9BDE800009618 /* OpenSans-SemiboldItalic.ttf */; };
-		8E7CBECB1AF9BFA200009618 /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		550697A01C685178008C5BAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8E7CBE831AF9BD7200009618 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5506979A1C685178008C5BAF;
+			remoteInfo = FontBlaster;
+		};
 		8E7CBEA11AF9BD7200009618 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8E7CBE831AF9BD7200009618 /* Project object */;
@@ -37,7 +47,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		550697A71C685178008C5BAF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				550697A31C685178008C5BAF /* FontBlaster.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		5506979B1C685178008C5BAF /* FontBlaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FontBlaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5506979D1C685178008C5BAF /* FontBlaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontBlaster.h; sourceTree = "<group>"; };
+		5506979F1C685178008C5BAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7CBE8B1AF9BD7200009618 /* Font Blaster Sample Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Font Blaster Sample Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E7CBE8F1AF9BD7200009618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E7CBE901AF9BD7200009618 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,10 +90,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		550697971C685178008C5BAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E7CBE881AF9BD7200009618 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				550697A21C685178008C5BAF /* FontBlaster.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,11 +115,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5506979C1C685178008C5BAF /* FontBlaster */ = {
+			isa = PBXGroup;
+			children = (
+				8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */,
+				5506979D1C685178008C5BAF /* FontBlaster.h */,
+				5506979F1C685178008C5BAF /* Info.plist */,
+			);
+			path = FontBlaster;
+			sourceTree = "<group>";
+		};
 		8E7CBE821AF9BD7200009618 = {
 			isa = PBXGroup;
 			children = (
 				8E7CBE8D1AF9BD7200009618 /* Font Blaster Sample Project */,
 				8E7CBEA31AF9BD7200009618 /* Font Blaster Sample ProjectTests */,
+				5506979C1C685178008C5BAF /* FontBlaster */,
 				8E7CBE8C1AF9BD7200009618 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +140,7 @@
 			children = (
 				8E7CBE8B1AF9BD7200009618 /* Font Blaster Sample Project.app */,
 				8E7CBEA01AF9BD7200009618 /* Font Blaster Sample ProjectTests.xctest */,
+				5506979B1C685178008C5BAF /* FontBlaster.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -101,10 +148,9 @@
 		8E7CBE8D1AF9BD7200009618 /* Font Blaster Sample Project */ = {
 			isa = PBXGroup;
 			children = (
-				8E7CBECA1AF9BFA200009618 /* FontBlaster.swift */,
-				8E7CBEB21AF9BDCA00009618 /* Models */,
-				8E7CBEB11AF9BDC400009618 /* View Controllers */,
-				8E7CBEB01AF9BDBD00009618 /* Views */,
+				8E7CBE901AF9BD7200009618 /* AppDelegate.swift */,
+				8E7CBE921AF9BD7200009618 /* ViewController.swift */,
+				8E7CBE941AF9BD7200009618 /* Main.storyboard */,
 				8E7CBE8E1AF9BD7200009618 /* Supporting Files */,
 			);
 			path = "Font Blaster Sample Project";
@@ -113,6 +159,8 @@
 		8E7CBE8E1AF9BD7200009618 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				8E7CBEB31AF9BDE800009618 /* OpenSans */,
+				8E7CBE991AF9BD7200009618 /* LaunchScreen.xib */,
 				8E7CBE971AF9BD7200009618 /* Images.xcassets */,
 				8E7CBE8F1AF9BD7200009618 /* Info.plist */,
 			);
@@ -136,32 +184,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		8E7CBEB01AF9BDBD00009618 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				8E7CBEB31AF9BDE800009618 /* OpenSans */,
-				8E7CBE941AF9BD7200009618 /* Main.storyboard */,
-				8E7CBE991AF9BD7200009618 /* LaunchScreen.xib */,
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		8E7CBEB11AF9BDC400009618 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8E7CBE921AF9BD7200009618 /* ViewController.swift */,
-			);
-			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		8E7CBEB21AF9BDCA00009618 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				8E7CBE901AF9BD7200009618 /* AppDelegate.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		8E7CBEB31AF9BDE800009618 /* OpenSans */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +204,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		550697981C685178008C5BAF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5506979E1C685178008C5BAF /* FontBlaster.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		5506979A1C685178008C5BAF /* FontBlaster */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 550697A61C685178008C5BAF /* Build configuration list for PBXNativeTarget "FontBlaster" */;
+			buildPhases = (
+				550697961C685178008C5BAF /* Sources */,
+				550697971C685178008C5BAF /* Frameworks */,
+				550697981C685178008C5BAF /* Headers */,
+				550697991C685178008C5BAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FontBlaster;
+			productName = FontBlaster;
+			productReference = 5506979B1C685178008C5BAF /* FontBlaster.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		8E7CBE8A1AF9BD7200009618 /* Font Blaster Sample Project */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E7CBEAA1AF9BD7200009618 /* Build configuration list for PBXNativeTarget "Font Blaster Sample Project" */;
@@ -190,10 +241,12 @@
 				8E7CBE871AF9BD7200009618 /* Sources */,
 				8E7CBE881AF9BD7200009618 /* Frameworks */,
 				8E7CBE891AF9BD7200009618 /* Resources */,
+				550697A71C685178008C5BAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				550697A11C685178008C5BAF /* PBXTargetDependency */,
 			);
 			name = "Font Blaster Sample Project";
 			productName = "Font Blaster Sample Project";
@@ -229,6 +282,9 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Arthur Ariel Sabintsev";
 				TargetAttributes = {
+					5506979A1C685178008C5BAF = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					8E7CBE8A1AF9BD7200009618 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
@@ -253,11 +309,19 @@
 			targets = (
 				8E7CBE8A1AF9BD7200009618 /* Font Blaster Sample Project */,
 				8E7CBE9F1AF9BD7200009618 /* Font Blaster Sample ProjectTests */,
+				5506979A1C685178008C5BAF /* FontBlaster */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		550697991C685178008C5BAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E7CBE891AF9BD7200009618 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -289,11 +353,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		550697961C685178008C5BAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				550697A81C685181008C5BAF /* FontBlaster.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8E7CBE871AF9BD7200009618 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E7CBECB1AF9BFA200009618 /* FontBlaster.swift in Sources */,
 				8E7CBE931AF9BD7200009618 /* ViewController.swift in Sources */,
 				8E7CBE911AF9BD7200009618 /* AppDelegate.swift in Sources */,
 			);
@@ -310,6 +381,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		550697A11C685178008C5BAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5506979A1C685178008C5BAF /* FontBlaster */;
+			targetProxy = 550697A01C685178008C5BAF /* PBXContainerItemProxy */;
+		};
 		8E7CBEA21AF9BD7200009618 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8E7CBE8A1AF9BD7200009618 /* Font Blaster Sample Project */;
@@ -337,6 +413,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		550697A41C685178008C5BAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FontBlaster/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sabintsev.FontBlaster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		550697A51C685178008C5BAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = FontBlaster/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Sabintsev.FontBlaster;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		8E7CBEA81AF9BD7200009618 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -423,6 +542,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Font Blaster Sample Project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -435,6 +555,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Font Blaster Sample Project/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -482,6 +603,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		550697A61C685178008C5BAF /* Build configuration list for PBXNativeTarget "FontBlaster" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				550697A41C685178008C5BAF /* Debug */,
+				550697A51C685178008C5BAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8E7CBE861AF9BD7200009618 /* Build configuration list for PBXProject "Font Blaster Sample Project" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
