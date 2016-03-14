@@ -10,7 +10,9 @@ import Foundation
 import CoreGraphics
 import CoreText
 
-// MARK: Enumerations
+
+// MARK: - Enums
+
 /**
     Limits the type of fonts that can be loaded into an application
 
@@ -23,7 +25,9 @@ private enum SupportedFontExtensions: String {
     case OpenTypeFont = ".otf"
 }
 
-// MARK: FontBlaster Class
+
+// MARK: - FontBlaster
+
 /**
     The FontBlaster Class.
 
@@ -33,7 +37,7 @@ private enum SupportedFontExtensions: String {
         - debugEnabled
 */
 public class FontBlaster {
-    // Typealiases to better handle of the different aspects of loading a font
+
     private typealias FontPath = String
     private typealias FontName = String
     private typealias FontExtension = String
@@ -43,18 +47,35 @@ public class FontBlaster {
         Used to toggle debug println() statements
     */
     public static var debugEnabled = false
-    
+
+    /**
+        A list of the loaded fonts
+     */
+    public static var loadedFonts: [String] = []
+
     /**
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
     public static func blast(bundle: NSBundle = NSBundle.mainBundle()) {
+        blast(completion: nil)
+    }
+
+    /**
+     Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
+     
+     - returns: An array of strings constaining the names of the fonts that were loaded.
+     */
+    public static func blast(bundle: NSBundle = NSBundle.mainBundle(), completion handler: ([String]->Void)?) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
+        handler?(loadedFonts)
     }
 }
 
-// MARK: Helpers (Font Loading)
+
+// MARK: - Helpers (Font Loading)
+
 private extension FontBlaster {
     /**
         Loads all fonts found in a bundle.
@@ -86,11 +107,9 @@ private extension FontBlaster {
         do {
             let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
             for item in contents {
-                if let url = NSURL(string: path) {
-                    if item.containsString(".bundle") {
-                        let urlPath = url.URLByAppendingPathComponent(item)
-                        loadFontsForBundleWithPath(urlPath.absoluteString)
-                    }
+                if let url = NSURL(string: path) where item.containsString(".bundle") {
+                    let urlPath = url.URLByAppendingPathComponent(item)
+                    loadFontsForBundleWithPath(urlPath.absoluteString)
                 }
             }
         } catch let error as NSError {
@@ -116,6 +135,7 @@ private extension FontBlaster {
         var fontError: Unmanaged<CFError>?
         if CTFontManagerRegisterFontsForURL(fontFileURL, CTFontManagerScope.Process, &fontError) {
             printStatus("Successfully loaded font: '\(fontName)'.")
+            loadedFonts.append(fontName)
         } else {
             guard let fontError = fontError?.takeRetainedValue() else {
                 printStatus("Failed to load font '\(fontName)'.")
@@ -127,7 +147,9 @@ private extension FontBlaster {
     }
 }
 
-// MARK: Helpers (Miscellaneous)
+
+// MARK: - Helpers (Miscellaneous)
+
 private extension FontBlaster {
     /**
         Parses a font into its name and extension components.

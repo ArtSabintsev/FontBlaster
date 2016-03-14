@@ -50,6 +50,14 @@ If you are loading from a bundle that isn't found inside your app's `mainBundle`
 FontBlaster.blast(_:) // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed
 ```
 
+```Swift
+// // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed and returns an array of font names
+
+FontBlaster.blast(_:) { (fonts) in
+  print(fonts) // Prints [String] of loaded font names
+}
+```
+
 To turn on console debug statements, simply set `debugEnabled() = true` **before** calling either `blast()` method:
 
 ```Swift
