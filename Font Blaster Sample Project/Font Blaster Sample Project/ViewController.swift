@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     @IBAction func loadButtonAction(sender: UIButton) {
         FontBlaster.debugEnabled = true
         FontBlaster.blast { (fonts) -> Void in
-            print("Loaded FONTS", fonts)
+            print("Loaded Fonts", fonts)
         }
         setupFonts()
     }
