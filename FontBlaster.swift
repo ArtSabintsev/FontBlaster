@@ -57,7 +57,7 @@ public class FontBlaster {
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
     public static func blast(bundle: NSBundle = NSBundle.mainBundle()) {
-        blast(completion: nil)
+        blast(bundle, completion: nil)
     }
 
     /**
