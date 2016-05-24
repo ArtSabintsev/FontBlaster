@@ -134,21 +134,29 @@ private extension FontBlaster {
         
         var fontError: Unmanaged<CFError>?
         
-        let fontdata = NSData(contentsOfURL: fontFileURL)
-        let dataProvider = CGDataProviderCreateWithCFData(fontdata)
-        let fontRef = CGFontCreateWithDataProvider(dataProvider)
-        if CTFontManagerRegisterGraphicsFont(fontRef!, &fontError){
-            let postScriptName = CGFontCopyPostScriptName(fontRef)
-            if let stringName = postScriptName{
-                printStatus("Successfully loaded font: '\(stringName)'.")
-                loadedFonts.append(String(stringName))
+        let fontData = NSData(contentsOfURL: fontFileURL)
+        let dataProvider = CGDataProviderCreateWithCFData(fontData)
+        if let fontRef = CGFontCreateWithDataProvider(dataProvider) {
+
+            if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
+
+                if let postScriptName = CGFontCopyPostScriptName(fontRef) {
+                    printStatus("Successfully loaded font: '\(postScriptName)'.")
+                    loadedFonts.append(String(postScriptName))
+                }
+
+            } else if let fontError = fontError?.takeRetainedValue() {
+                let errorDescription = CFErrorCopyDescription(fontError)
+                printStatus("Failed to load font '\(fontName)': \(errorDescription)")
             }
             
-        } else{
+        } else {
+
             guard let fontError = fontError?.takeRetainedValue() else {
                 printStatus("Failed to load font '\(fontName)'.")
                 return
             }
+
             let errorDescription = CFErrorCopyDescription(fontError)
             printStatus("Failed to load font '\(fontName)': \(errorDescription)")
         }
