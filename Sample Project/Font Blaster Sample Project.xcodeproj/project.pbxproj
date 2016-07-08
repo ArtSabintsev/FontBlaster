@@ -16,7 +16,6 @@
 		8E7CBE961AF9BD7200009618 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBE941AF9BD7200009618 /* Main.storyboard */; };
 		8E7CBE981AF9BD7200009618 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBE971AF9BD7200009618 /* Images.xcassets */; };
 		8E7CBE9B1AF9BD7200009618 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBE991AF9BD7200009618 /* LaunchScreen.xib */; };
-		8E7CBEA71AF9BD7200009618 /* Font_Blaster_Sample_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E7CBEA61AF9BD7200009618 /* Font_Blaster_Sample_ProjectTests.swift */; };
 		8E7CBEBF1AF9BDE800009618 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEB41AF9BDE800009618 /* LICENSE.txt */; };
 		8E7CBEC01AF9BDE800009618 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEB51AF9BDE800009618 /* OpenSans-Bold.ttf */; };
 		8E7CBEC11AF9BDE800009618 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E7CBEB61AF9BDE800009618 /* OpenSans-BoldItalic.ttf */; };
@@ -37,13 +36,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 5506979A1C685178008C5BAF;
 			remoteInfo = FontBlaster;
-		};
-		8E7CBEA11AF9BD7200009618 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8E7CBE831AF9BD7200009618 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8E7CBE8A1AF9BD7200009618;
-			remoteInfo = "Font Blaster Sample Project";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,9 +64,6 @@
 		8E7CBE951AF9BD7200009618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8E7CBE971AF9BD7200009618 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8E7CBE9A1AF9BD7200009618 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		8E7CBEA01AF9BD7200009618 /* Font Blaster Sample ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Font Blaster Sample ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E7CBEA51AF9BD7200009618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E7CBEA61AF9BD7200009618 /* Font_Blaster_Sample_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font_Blaster_Sample_ProjectTests.swift; sourceTree = "<group>"; };
 		8E7CBEB41AF9BDE800009618 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		8E7CBEB51AF9BDE800009618 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8E7CBEB61AF9BDE800009618 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -105,13 +94,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E7CBE9D1AF9BD7200009618 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -129,7 +111,6 @@
 			isa = PBXGroup;
 			children = (
 				8E7CBE8D1AF9BD7200009618 /* Font Blaster Sample Project */,
-				8E7CBEA31AF9BD7200009618 /* Font Blaster Sample ProjectTests */,
 				5506979C1C685178008C5BAF /* FontBlaster */,
 				8E7CBE8C1AF9BD7200009618 /* Products */,
 			);
@@ -139,7 +120,6 @@
 			isa = PBXGroup;
 			children = (
 				8E7CBE8B1AF9BD7200009618 /* Font Blaster Sample Project.app */,
-				8E7CBEA01AF9BD7200009618 /* Font Blaster Sample ProjectTests.xctest */,
 				5506979B1C685178008C5BAF /* FontBlaster.framework */,
 			);
 			name = Products;
@@ -163,23 +143,6 @@
 				8E7CBE991AF9BD7200009618 /* LaunchScreen.xib */,
 				8E7CBE971AF9BD7200009618 /* Images.xcassets */,
 				8E7CBE8F1AF9BD7200009618 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8E7CBEA31AF9BD7200009618 /* Font Blaster Sample ProjectTests */ = {
-			isa = PBXGroup;
-			children = (
-				8E7CBEA61AF9BD7200009618 /* Font_Blaster_Sample_ProjectTests.swift */,
-				8E7CBEA41AF9BD7200009618 /* Supporting Files */,
-			);
-			path = "Font Blaster Sample ProjectTests";
-			sourceTree = "<group>";
-		};
-		8E7CBEA41AF9BD7200009618 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				8E7CBEA51AF9BD7200009618 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -253,24 +216,6 @@
 			productReference = 8E7CBE8B1AF9BD7200009618 /* Font Blaster Sample Project.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E7CBE9F1AF9BD7200009618 /* Font Blaster Sample ProjectTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8E7CBEAD1AF9BD7200009618 /* Build configuration list for PBXNativeTarget "Font Blaster Sample ProjectTests" */;
-			buildPhases = (
-				8E7CBE9C1AF9BD7200009618 /* Sources */,
-				8E7CBE9D1AF9BD7200009618 /* Frameworks */,
-				8E7CBE9E1AF9BD7200009618 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				8E7CBEA21AF9BD7200009618 /* PBXTargetDependency */,
-			);
-			name = "Font Blaster Sample ProjectTests";
-			productName = "Font Blaster Sample ProjectTests";
-			productReference = 8E7CBEA01AF9BD7200009618 /* Font Blaster Sample ProjectTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -288,10 +233,6 @@
 					8E7CBE8A1AF9BD7200009618 = {
 						CreatedOnToolsVersion = 6.3.1;
 					};
-					8E7CBE9F1AF9BD7200009618 = {
-						CreatedOnToolsVersion = 6.3.1;
-						TestTargetID = 8E7CBE8A1AF9BD7200009618;
-					};
 				};
 			};
 			buildConfigurationList = 8E7CBE861AF9BD7200009618 /* Build configuration list for PBXProject "Font Blaster Sample Project" */;
@@ -308,7 +249,6 @@
 			projectRoot = "";
 			targets = (
 				8E7CBE8A1AF9BD7200009618 /* Font Blaster Sample Project */,
-				8E7CBE9F1AF9BD7200009618 /* Font Blaster Sample ProjectTests */,
 				5506979A1C685178008C5BAF /* FontBlaster */,
 			);
 		};
@@ -343,13 +283,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E7CBE9E1AF9BD7200009618 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -370,14 +303,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E7CBE9C1AF9BD7200009618 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8E7CBEA71AF9BD7200009618 /* Font_Blaster_Sample_ProjectTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -385,11 +310,6 @@
 			isa = PBXTargetDependency;
 			target = 5506979A1C685178008C5BAF /* FontBlaster */;
 			targetProxy = 550697A01C685178008C5BAF /* PBXContainerItemProxy */;
-		};
-		8E7CBEA21AF9BD7200009618 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8E7CBE8A1AF9BD7200009618 /* Font Blaster Sample Project */;
-			targetProxy = 8E7CBEA11AF9BD7200009618 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -564,36 +484,6 @@
 			};
 			name = Release;
 		};
-		8E7CBEAE1AF9BD7200009618 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Font Blaster Sample ProjectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Sabintsev.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Font Blaster Sample Project.app/Font Blaster Sample Project";
-			};
-			name = Debug;
-		};
-		8E7CBEAF1AF9BD7200009618 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "Font Blaster Sample ProjectTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Sabintsev.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Font Blaster Sample Project.app/Font Blaster Sample Project";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,15 +510,6 @@
 			buildConfigurations = (
 				8E7CBEAB1AF9BD7200009618 /* Debug */,
 				8E7CBEAC1AF9BD7200009618 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8E7CBEAD1AF9BD7200009618 /* Build configuration list for PBXNativeTarget "Font Blaster Sample ProjectTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8E7CBEAE1AF9BD7200009618 /* Debug */,
-				8E7CBEAF1AF9BD7200009618 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
