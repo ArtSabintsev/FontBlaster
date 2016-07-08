@@ -36,12 +36,12 @@ private enum SupportedFontExtensions: String {
     Only one class variable can be accessed and modified
         - debugEnabled
 */
-public class FontBlaster {
+final public class FontBlaster {
 
     private typealias FontPath = String
     private typealias FontName = String
     private typealias FontExtension = String
-    private typealias Font = (FontPath, FontName, FontExtension)
+    private typealias Font = (path: FontPath, name: FontName, ext: FontExtension)
     
     /** 
         Used to toggle debug println() statements
@@ -91,10 +91,10 @@ private extension FontBlaster {
                     loadFont(font)
                 }
             } else {
-                printStatus("No fonts were found in the bundle path: \(path).")
+                printStatus(status: "No fonts were found in the bundle path: \(path).")
             }
         } catch let error as NSError {
-            printStatus("There was an error loading fonts from the bundle. \nPath: \(path).\nError: \(error)")
+            printStatus(status: "There was an error loading fonts from the bundle. \nPath: \(path).\nError: \(error)")
         }
     }
     
@@ -113,7 +113,7 @@ private extension FontBlaster {
                 }
             }
         } catch let error as NSError {
-            printStatus("There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
+            printStatus(status: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
     }
     
@@ -123,42 +123,42 @@ private extension FontBlaster {
         - parameter font: The font to load.
     */
     static func loadFont(font: Font) {
-        let fontPath: FontPath = font.0
-        let fontName: FontPath = font.1
-        let fontExtension: FontPath = font.2
+        let fontPath: FontPath = font.path
+        let fontName: FontName = font.name
+        let fontExtension: FontExtension = font.ext
 
         guard let fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension) else {
-            printStatus("Could not unwrap the file URL for the resource with name: \(fontName) and extension \(fontExtension)")
+            printStatus(status: "Could not unwrap the file URL for the resource with name: \(fontName) and extension \(fontExtension)")
             return
         }
         
         var fontError: Unmanaged<CFError>?
         
-        let fontData = NSData(contentsOfURL: fontFileURL)
-        let dataProvider = CGDataProviderCreateWithCFData(fontData)
-        if let fontRef = CGFontCreateWithDataProvider(dataProvider) {
+        if let fontData = NSData(contentsOfURL: fontFileURL),
+            dataProvider = CGDataProviderCreateWithCFData(fontData),
+            fontRef = CGFontCreateWithDataProvider(dataProvider) {
 
             if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
 
                 if let postScriptName = CGFontCopyPostScriptName(fontRef) {
-                    printStatus("Successfully loaded font: '\(postScriptName)'.")
+                    printStatus(status: "Successfully loaded font: '\(postScriptName)'.")
                     loadedFonts.append(String(postScriptName))
                 }
 
             } else if let fontError = fontError?.takeRetainedValue() {
                 let errorDescription = CFErrorCopyDescription(fontError)
-                printStatus("Failed to load font '\(fontName)': \(errorDescription)")
+                printStatus(status: "Failed to load font '\(fontName)': \(errorDescription)")
             }
             
         } else {
 
             guard let fontError = fontError?.takeRetainedValue() else {
-                printStatus("Failed to load font '\(fontName)'.")
+                printStatus(status: "Failed to load font '\(fontName)'.")
                 return
             }
 
             let errorDescription = CFErrorCopyDescription(fontError)
-            printStatus("Failed to load font '\(fontName)': \(errorDescription)")
+            printStatus(status: "Failed to load font '\(fontName)': \(errorDescription)")
         }
 
     }
@@ -209,7 +209,7 @@ private extension FontBlaster {
     
         - parameter The: status to print to the console.
     */
-    static func printStatus(status: String) {
+    static func printStatus(status status: String) {
         if debugEnabled == true {
             print("[FontBlaster]: \(status)")
         }
