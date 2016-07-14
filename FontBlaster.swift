@@ -56,7 +56,7 @@ final public class FontBlaster {
     /**
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
-    public static func blast(bundle: NSBundle = NSBundle.mainBundle()) {
+    public class func blast(bundle: NSBundle = NSBundle.mainBundle()) {
         blast(bundle, completion: nil)
     }
 
@@ -65,7 +65,7 @@ final public class FontBlaster {
      
      - returns: An array of strings constaining the names of the fonts that were loaded.
      */
-    public static func blast(bundle: NSBundle = NSBundle.mainBundle(), completion handler: ([String]->Void)?) {
+    public class func blast(bundle: NSBundle = NSBundle.mainBundle(), completion handler: ([String]->Void)?) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
@@ -103,7 +103,7 @@ private extension FontBlaster {
         
         - parameter path: The absolute path to the bundle.
     */
-    static func loadFontsFromBundlesFoundInBundle(path: String) {
+    class func loadFontsFromBundlesFoundInBundle(path: String) {
         do {
             let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
             for item in contents {
@@ -122,7 +122,7 @@ private extension FontBlaster {
     
         - parameter font: The font to load.
     */
-    static func loadFont(font: Font) {
+    class func loadFont(font: Font) {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
@@ -175,7 +175,7 @@ private extension FontBlaster {
         - parameter contents: The contents of an NSBundle as an array of String objects.
         - returns: A tuple with the font's name and extension.
     */
-    static func fontsFromPath(path path: String, contents: [NSString]) -> [Font] {
+    class func fontsFromPath(path path: String, contents: [NSString]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
@@ -199,7 +199,7 @@ private extension FontBlaster {
         - parameter The: name of the font.
         - returns: A tuple with the font's name and extension.
     */
-    static func fontFromName(name: String) -> (FontName, FontExtension) {
+    class func fontFromName(name: String) -> (FontName, FontExtension) {
         let components = name.characters.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
@@ -209,7 +209,7 @@ private extension FontBlaster {
     
         - parameter The: status to print to the console.
     */
-    static func printStatus(status status: String) {
+    class func printStatus(status status: String) {
         if debugEnabled == true {
             print("[FontBlaster]: \(status)")
         }
