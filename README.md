@@ -21,9 +21,21 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 pod 'FontBlaster'
 ```
 
+For Swift 3 support:
+
+```ruby
+pod 'FontBlaster' :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3'
+```
+
 ### Carthage
 ``` swift
 github "ArtSabintsev/FontBlaster"
+```
+
+For Swift 3 support:
+
+```swift
+github "ArtSabintsev/FontBlaster" "swift3"
 ```
 
 ### Swift Package Manager
