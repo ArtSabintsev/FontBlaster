@@ -56,7 +56,7 @@ final public class FontBlaster {
     /**
         Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     */
-    public static func blast(bundle: NSBundle = NSBundle.mainBundle()) {
+    public class func blast(_ bundle: Bundle = Bundle.main) {
         blast(bundle, completion: nil)
     }
 
@@ -65,7 +65,7 @@ final public class FontBlaster {
      
      - returns: An array of strings constaining the names of the fonts that were loaded.
      */
-    public static func blast(bundle: NSBundle = NSBundle.mainBundle(), completion handler: ([String]->Void)?) {
+    public class func blast(_ bundle: Bundle = Bundle.main, completion handler: (([String])->Void)?) {
         let path = bundle.bundlePath
         loadFontsForBundleWithPath(path)
         loadFontsFromBundlesFoundInBundle(path)
@@ -82,19 +82,19 @@ private extension FontBlaster {
     
         - parameter path: The absolute path to the bundle.
     */
-    class func loadFontsForBundleWithPath(path: String) {
+    class func loadFontsForBundleWithPath(_ path: String) {
         do {
-            let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+            let contents = try FileManager.default.contentsOfDirectory(atPath: path)
             let fonts = fontsFromPath(path: path, contents: contents)
             if !fonts.isEmpty {
                 for font in fonts {
                     loadFont(font)
                 }
             } else {
-                printStatus(status: "No fonts were found in the bundle path: \(path).")
+                printDebugMessage(message: "No fonts were found in the bundle path: \(path).")
             }
         } catch let error as NSError {
-            printStatus(status: "There was an error loading fonts from the bundle. \nPath: \(path).\nError: \(error)")
+            printDebugMessage(message: "There was an error loading fonts from the bundle. \nPath: \(path).\nError: \(error)")
         }
     }
     
@@ -103,18 +103,21 @@ private extension FontBlaster {
         
         - parameter path: The absolute path to the bundle.
     */
-    static func loadFontsFromBundlesFoundInBundle(path: String) {
+    class func loadFontsFromBundlesFoundInBundle(_ path: String) {
+
         do {
-            let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+            let contents = try FileManager.default.contentsOfDirectory(atPath: path)
             for item in contents {
-                if let url = NSURL(string: path) where item.containsString(".bundle") {
-                    let urlPath = url.URLByAppendingPathComponent(item)
-                    loadFontsForBundleWithPath(urlPath.absoluteString)
+                if let url = URL(string: path) where item.contains(".bundle"),
+                    let urlPath = try? url.appendingPathComponent(item),
+                    urlPathString = urlPath.absoluteString {
+                    loadFontsForBundleWithPath(urlPathString)
                 }
             }
         } catch let error as NSError {
-            printStatus(status: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
+            printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
+
     }
     
     /**
@@ -122,43 +125,44 @@ private extension FontBlaster {
     
         - parameter font: The font to load.
     */
-    static func loadFont(font: Font) {
+    class func loadFont(_ font: Font) {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
 
-        guard let fontFileURL = NSBundle(path: fontPath)?.URLForResource(fontName, withExtension: fontExtension) else {
-            printStatus(status: "Could not unwrap the file URL for the resource with name: \(fontName) and extension \(fontExtension)")
+        guard let fontFileURL = Bundle(path: fontPath)?.urlForResource(fontName, withExtension: fontExtension) else {
+            printDebugMessage(message: "Could not unwrap the file URL for the resource with name: \(fontName) and extension \(fontExtension)")
             return
         }
         
         var fontError: Unmanaged<CFError>?
         
-        if let fontData = NSData(contentsOfURL: fontFileURL),
-            dataProvider = CGDataProviderCreateWithCFData(fontData),
-            fontRef = CGFontCreateWithDataProvider(dataProvider) {
+        if let fontData = try? Data(contentsOf: fontFileURL),
+            dataProvider = CGDataProvider(data: fontData) {
+
+            let fontRef = CGFont(dataProvider)
 
             if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
 
-                if let postScriptName = CGFontCopyPostScriptName(fontRef) {
-                    printStatus(status: "Successfully loaded font: '\(postScriptName)'.")
+                if let postScriptName = fontRef.postScriptName {
+                    printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
                     loadedFonts.append(String(postScriptName))
                 }
 
             } else if let fontError = fontError?.takeRetainedValue() {
                 let errorDescription = CFErrorCopyDescription(fontError)
-                printStatus(status: "Failed to load font '\(fontName)': \(errorDescription)")
+                printDebugMessage(message: "Failed to load font '\(fontName)': \(errorDescription)")
             }
             
         } else {
 
             guard let fontError = fontError?.takeRetainedValue() else {
-                printStatus(status: "Failed to load font '\(fontName)'.")
+                printDebugMessage(message: "Failed to load font '\(fontName)'.")
                 return
             }
 
             let errorDescription = CFErrorCopyDescription(fontError)
-            printStatus(status: "Failed to load font '\(fontName)': \(errorDescription)")
+            printDebugMessage(message: "Failed to load font '\(fontName)': \(errorDescription)")
         }
 
     }
@@ -175,12 +179,12 @@ private extension FontBlaster {
         - parameter contents: The contents of an NSBundle as an array of String objects.
         - returns: A tuple with the font's name and extension.
     */
-    static func fontsFromPath(path path: String, contents: [NSString]) -> [Font] {
+    class func fontsFromPath(path: String, contents: [NSString]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
 
-            if fontName.containsString(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.containsString(SupportedFontExtensions.OpenTypeFont.rawValue) {
+            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(SupportedFontExtensions.OpenTypeFont.rawValue) {
                 parsedFont = fontFromName(fontName as String)
             }
 
@@ -199,7 +203,7 @@ private extension FontBlaster {
         - parameter The: name of the font.
         - returns: A tuple with the font's name and extension.
     */
-    static func fontFromName(name: String) -> (FontName, FontExtension) {
+    class func fontFromName(_ name: String) -> (FontName, FontExtension) {
         let components = name.characters.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
@@ -209,9 +213,10 @@ private extension FontBlaster {
     
         - parameter The: status to print to the console.
     */
-    static func printStatus(status status: String) {
+    class func printDebugMessage(message: String) {
         if debugEnabled == true {
-            print("[FontBlaster]: \(status)")
+            print("[FontBlaster]: \(message)")
         }
     }
+
 }
