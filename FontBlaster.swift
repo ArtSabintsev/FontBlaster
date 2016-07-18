@@ -107,13 +107,19 @@ private extension FontBlaster {
 
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
+
             for item in contents {
-                if let url = URL(string: path) where item.contains(".bundle"),
+
+                if let url = URL(string: path),
                     let urlPath = try? url.appendingPathComponent(item),
-                    urlPathString = urlPath.absoluteString {
+                    let urlPathString = urlPath.absoluteString,
+                    item.contains(".bundle") {
+
                     loadFontsForBundleWithPath(urlPathString)
                 }
+
             }
+
         } catch let error as NSError {
             printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
@@ -138,7 +144,7 @@ private extension FontBlaster {
         var fontError: Unmanaged<CFError>?
 
         if let fontData = try? Data(contentsOf: fontFileURL),
-            dataProvider = CGDataProvider(data: fontData) {
+            let dataProvider = CGDataProvider(data: fontData) {
 
             let fontRef = CGFont(dataProvider)
 
