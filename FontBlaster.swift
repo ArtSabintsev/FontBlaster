@@ -111,10 +111,8 @@ private extension FontBlaster {
             for item in contents {
 
                 if let url = URL(string: path),
-                    let urlPath = try? url.appendingPathComponent(item),
-                    let urlPathString = urlPath.absoluteString,
                     item.contains(".bundle") {
-
+                    let urlPathString = url.appendingPathComponent(item).absoluteString
                     loadFontsForBundleWithPath(urlPathString)
                 }
 
@@ -136,10 +134,7 @@ private extension FontBlaster {
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
 
-        guard let fontFileURL = Bundle(path: fontPath)?.urlForResource(fontName, withExtension: fontExtension) else {
-            printDebugMessage(message: "Could not unwrap the file URL for the resource with name: \(fontName) and extension \(fontExtension)")
-            return
-        }
+        let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(fontExtension)
 
         var fontError: Unmanaged<CFError>?
 
