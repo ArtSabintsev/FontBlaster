@@ -20,7 +20,7 @@ import CoreText
     - TrueTypeFont
     - OpenTypeFont
 */
-private enum SupportedFontExtensions: String {
+fileprivate enum SupportedFontExtensions: String {
     case TrueTypeFont = ".ttf"
     case OpenTypeFont = ".otf"
 }
@@ -38,10 +38,10 @@ private enum SupportedFontExtensions: String {
 */
 final public class FontBlaster {
 
-    private typealias FontPath = String
-    private typealias FontName = String
-    private typealias FontExtension = String
-    private typealias Font = (path: FontPath, name: FontName, ext: FontExtension)
+    fileprivate typealias FontPath = String
+    fileprivate typealias FontName = String
+    fileprivate typealias FontExtension = String
+    fileprivate typealias Font = (path: FontPath, name: FontName, ext: FontExtension)
 
     /**
         Used to toggle debug println() statements
@@ -67,7 +67,7 @@ final public class FontBlaster {
      */
     public class func blast(bundle: Bundle = Bundle.main, completion handler: (([String])->Void)?) {
         let path = bundle.bundlePath
-        loadFontsForBundleWithPath(path)
+        loadFontsForBundle(withPath: path)
         loadFontsFromBundlesFoundInBundle(path: path)
         handler?(loadedFonts)
     }
@@ -76,18 +76,18 @@ final public class FontBlaster {
 
 // MARK: - Helpers (Font Loading)
 
-private extension FontBlaster {
+fileprivate extension FontBlaster {
     /**
         Loads all fonts found in a bundle.
 
         - parameter path: The absolute path to the bundle.
     */
-    class func loadFontsForBundleWithPath(_ path: String) {
+    class func loadFontsForBundle(withPath path: String) {
         do {
-            let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-            let fonts = fontsFromPath(path: path, contents: contents)
-            if !fonts.isEmpty {
-                for font in fonts {
+            let contents = try FileManager.default.contentsOfDirectory(atPath: path) as [String]
+            let loadedFonts = fonts(fromPath: path, withContents: contents)
+            if !loadedFonts.isEmpty {
+                for font in loadedFonts {
                     loadFont(font: font)
                 }
             } else {
@@ -113,7 +113,7 @@ private extension FontBlaster {
                 if let url = URL(string: path),
                     item.contains(".bundle") {
                     let urlPathString = url.appendingPathComponent(item).absoluteString
-                    loadFontsForBundleWithPath(urlPathString)
+                    loadFontsForBundle(withPath: urlPathString)
                 }
 
             }
@@ -138,7 +138,7 @@ private extension FontBlaster {
 
         var fontError: Unmanaged<CFError>?
 
-        if let fontData = try? Data(contentsOf: fontFileURL),
+        if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
             let fontRef = CGFont(dataProvider)
@@ -172,7 +172,7 @@ private extension FontBlaster {
 
 // MARK: - Helpers (Miscellaneous)
 
-private extension FontBlaster {
+fileprivate extension FontBlaster {
     /**
         Parses a font into its name and extension components.
 
@@ -180,13 +180,13 @@ private extension FontBlaster {
         - parameter contents: The contents of an NSBundle as an array of String objects.
         - returns: A tuple with the font's name and extension.
     */
-    class func fontsFromPath(path: String, contents: [NSString]) -> [Font] {
+    class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
 
             if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(SupportedFontExtensions.OpenTypeFont.rawValue) {
-                parsedFont = fontFromName(name: fontName as String)
+                parsedFont = font(fromName: fontName)
             }
 
             if let parsedFont = parsedFont {
@@ -204,7 +204,7 @@ private extension FontBlaster {
         - parameter The: name of the font.
         - returns: A tuple with the font's name and extension.
     */
-    class func fontFromName(name: String) -> (FontName, FontExtension) {
+    class func font(fromName name: String) -> (FontName, FontExtension) {
         let components = name.characters.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
