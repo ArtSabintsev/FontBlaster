@@ -104,17 +104,27 @@ private extension FontBlaster {
         - parameter path: The absolute path to the bundle.
     */
     class func loadFontsFromBundlesFoundInBundle(path: String) {
+
         do {
+
             let contents = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(path)
+
             for item in contents {
-                if let url = NSURL(string: path) where item.containsString(".bundle") {
-                    let urlPath = url.URLByAppendingPathComponent(item)
-                    loadFontsForBundleWithPath(urlPath.absoluteString)
+
+                if let url = NSURL(string: path) where item.containsString(".bundle"),
+                    let urlPath = url.URLByAppendingPathComponent(item),
+                    urlPathString = urlPath.absoluteString {
+
+                        loadFontsForBundleWithPath(urlPathString)
+
                 }
+
             }
+
         } catch let error as NSError {
             printStatus(status: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
+
     }
     
     /**
@@ -135,8 +145,9 @@ private extension FontBlaster {
         var fontError: Unmanaged<CFError>?
         
         if let fontData = NSData(contentsOfURL: fontFileURL),
-            dataProvider = CGDataProviderCreateWithCFData(fontData),
-            fontRef = CGFontCreateWithDataProvider(dataProvider) {
+            dataProvider = CGDataProviderCreateWithCFData(fontData) {
+
+            let fontRef = CGFontCreateWithDataProvider(dataProvider)
 
             if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
 
