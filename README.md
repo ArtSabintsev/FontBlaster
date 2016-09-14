@@ -20,6 +20,8 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 ## Installation Instructions
 
 ### CocoaPods
+For Swift 3.0 support:
+
 ```ruby
 pod 'FontBlaster'
 ```
@@ -30,13 +32,9 @@ For Swift 2.3 support:
 pod 'FontBlaster' :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift2.3'
 ```
 
-For Swift 3 support:
-
-```ruby
-pod 'FontBlaster' :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3'
-```
-
 ### Carthage
+For Swift 3.0 support:
+
 ``` swift
 github "ArtSabintsev/FontBlaster"
 ```
@@ -47,15 +45,9 @@ For Swift 2.3 support:
 github "ArtSabintsev/FontBlaster" "swift2.3"
 ```
 
-For Swift 3 support:
-
-```swift
-github "ArtSabintsev/FontBlaster" "swift3"
-```
-
 ### Swift Package Manager
 ``` swift
-.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 2)
+.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 3)
 ```
 
 ### Manual
@@ -74,7 +66,7 @@ FontBlaster.blast() // Defaults to NSBundle.mainBundle() if no arguments are pas
 If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `NSBundle` in the `blast(_:)` method:
 
 ```Swift
-FontBlaster.blast(_:) // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed
+FontBlaster.blast(bundle:) // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed
 ```
 
 If you need a list of all of the loaded fonts, an overloaded version of the `blast(_:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `NSBundle` or defaults to `NSBundle.mainBundle()` if no argument is passed.
@@ -87,7 +79,7 @@ FontBlaster.blast() { (fonts) in
 }
 
 // Custom bundle is passed as argument
-FontBlaster.blast(_:) { (fonts) in
+FontBlaster.blast(bundle:) { (fonts) in
   print(fonts) // fonts is an array of Strings containing font names
 }
 ```
