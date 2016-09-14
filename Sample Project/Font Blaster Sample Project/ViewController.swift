@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         semiboldItalicLabel.font = UIFont(name: "OpenSans-SemiboldItalic", size: semiboldItalicLabel.font.pointSize)
     }
     
-    @IBAction func loadButtonAction(sender: UIButton) {
+    @IBAction func loadButtonAction(_ sender: UIButton) {
         FontBlaster.debugEnabled = true
         FontBlaster.blast { (fonts) -> Void in
             print("Loaded Fonts", fonts)
