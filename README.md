@@ -2,7 +2,7 @@
 
 ### Programmatically load custom fonts into your iOS app.
 
-;
+[![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)]()  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)]() [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)]() [![CocoaPods](https://img.shields.io/cocoapods/dm/FontBlaster.svg)]()
 ---
 ## About
 
