@@ -141,6 +141,12 @@ fileprivate extension FontBlaster {
         if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
+            /// Fixes deadlocking issue caused by `let fontRef = CGFont(dataProvider)`.
+            /// Temporary fix until rdar://18778790 is addressed.
+            /// Open Radar at http://www.openradar.me/18778790
+            /// Discussion at https://github.com/ArtSabintsev/FontBlaster/issues/19
+            _ = UIFont()
+
             let fontRef = CGFont(dataProvider)
 
             if CTFontManagerRegisterGraphicsFont(fontRef, &fontError) {
