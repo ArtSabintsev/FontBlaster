@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5506979A1C685178008C5BAF"
+               BlueprintIdentifier = "554B837F1E6B50C400798F7A"
                BuildableName = "FontBlaster.framework"
                BlueprintName = "FontBlaster"
-               ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+               ReferencedContainer = "container:FontBlasterExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5506979A1C685178008C5BAF"
+            BlueprintIdentifier = "554B837F1E6B50C400798F7A"
             BuildableName = "FontBlaster.framework"
             BlueprintName = "FontBlaster"
-            ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+            ReferencedContainer = "container:FontBlasterExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5506979A1C685178008C5BAF"
+            BlueprintIdentifier = "554B837F1E6B50C400798F7A"
             BuildableName = "FontBlaster.framework"
             BlueprintName = "FontBlaster"
-            ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+            ReferencedContainer = "container:FontBlasterExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

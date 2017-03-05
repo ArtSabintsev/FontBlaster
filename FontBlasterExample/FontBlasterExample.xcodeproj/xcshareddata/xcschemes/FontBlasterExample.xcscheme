@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0820"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,23 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E7CBE8A1AF9BD7200009618"
-               BuildableName = "Font Blaster Sample Project.app"
-               BlueprintName = "Font Blaster Sample Project"
-               ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8E7CBE9F1AF9BD7200009618"
-               BuildableName = "Font Blaster Sample ProjectTests.xctest"
-               BlueprintName = "Font Blaster Sample ProjectTests"
-               ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+               BuildableName = "FontBlasterExample.app"
+               BlueprintName = "FontBlasterExample"
+               ReferencedContainer = "container:FontBlasterExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -42,24 +28,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8E7CBE9F1AF9BD7200009618"
-               BuildableName = "Font Blaster Sample ProjectTests.xctest"
-               BlueprintName = "Font Blaster Sample ProjectTests"
-               ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7CBE8A1AF9BD7200009618"
-            BuildableName = "Font Blaster Sample Project.app"
-            BlueprintName = "Font Blaster Sample Project"
-            ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+            BuildableName = "FontBlasterExample.app"
+            BlueprintName = "FontBlasterExample"
+            ReferencedContainer = "container:FontBlasterExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -80,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7CBE8A1AF9BD7200009618"
-            BuildableName = "Font Blaster Sample Project.app"
-            BlueprintName = "Font Blaster Sample Project"
-            ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+            BuildableName = "FontBlasterExample.app"
+            BlueprintName = "FontBlasterExample"
+            ReferencedContainer = "container:FontBlasterExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -99,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E7CBE8A1AF9BD7200009618"
-            BuildableName = "Font Blaster Sample Project.app"
-            BlueprintName = "Font Blaster Sample Project"
-            ReferencedContainer = "container:Font Blaster Sample Project.xcodeproj">
+            BuildableName = "FontBlasterExample.app"
+            BlueprintName = "FontBlasterExample"
+            ReferencedContainer = "container:FontBlasterExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

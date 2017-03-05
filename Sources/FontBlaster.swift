@@ -13,13 +13,7 @@ import CoreText
 
 // MARK: - Enums
 
-/**
-    Limits the type of fonts that can be loaded into an application
-
-    There are two options:
-    - TrueTypeFont
-    - OpenTypeFont
-*/
+/// Limits the type of fonts that can be loaded into an application.
 fileprivate enum SupportedFontExtensions: String {
     case TrueTypeFont = ".ttf"
     case OpenTypeFont = ".otf"
@@ -28,14 +22,6 @@ fileprivate enum SupportedFontExtensions: String {
 
 // MARK: - FontBlaster
 
-/**
-    The FontBlaster Class.
-
-    Only one class method can be accessed
-        - blast(_:)
-    Only one class variable can be accessed and modified
-        - debugEnabled
-*/
 final public class FontBlaster {
 
     fileprivate typealias FontPath = String
@@ -43,19 +29,13 @@ final public class FontBlaster {
     fileprivate typealias FontExtension = String
     fileprivate typealias Font = (path: FontPath, name: FontName, ext: FontExtension)
 
-    /**
-        Used to toggle debug println() statements
-    */
+    /// Toggles debug print() statements
     public static var debugEnabled = false
 
-    /**
-        A list of the loaded fonts
-     */
+    /// A list of the loaded fonts
     public static var loadedFonts: [String] = []
 
-    /**
-        Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
-    */
+    /// Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
     public class func blast(bundle: Bundle = Bundle.main) {
         blast(bundle: bundle, completion: nil)
     }

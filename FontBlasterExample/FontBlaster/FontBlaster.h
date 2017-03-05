@@ -2,8 +2,8 @@
 //  FontBlaster.h
 //  FontBlaster
 //
-//  Created by Sabintsev, Arthur on 2/7/16.
-//  Copyright © 2016 Arthur Ariel Sabintsev. All rights reserved.
+//  Created by Sabintsev, Arthur on 3/4/17.
+//  Copyright © 2017 Arthur Ariel Sabintsev. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
