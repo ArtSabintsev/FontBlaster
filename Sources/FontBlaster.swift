@@ -34,13 +34,13 @@ final public class FontBlaster {
     /// A list of the loaded fonts
     public static var loadedFonts: [String] = []
 
-    /// Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
+    /// Load all fonts found in a specific bundle. If no value is entered, it defaults to the main bundle.
     public class func blast(bundle: Bundle = Bundle.main) {
         blast(bundle: bundle, completion: nil)
     }
 
     /**
-     Load all fonts found in a specific bundle. If no value is entered, it defaults to NSBundle.mainBundle().
+     Load all fonts found in a specific bundle. If no value is entered, it defaults to the main bundle.
 
      - returns: An array of strings constaining the names of the fonts that were loaded.
      */
