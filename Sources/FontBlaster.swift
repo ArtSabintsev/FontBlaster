@@ -10,11 +10,10 @@ import Foundation
 import CoreGraphics
 import CoreText
 
-
 // MARK: - Enums
 
 /// Limits the type of fonts that can be loaded into an application.
-fileprivate enum SupportedFontExtensions: String {
+private enum SupportedFontExtensions: String {
     case TrueTypeFont = ".ttf"
     case OpenTypeFont = ".otf"
 }
@@ -57,11 +56,9 @@ final public class FontBlaster {
 // MARK: - Helpers (Font Loading)
 
 fileprivate extension FontBlaster {
-    /**
-        Loads all fonts found in a bundle.
-
-        - parameter path: The absolute path to the bundle.
-    */
+    /// Loads all fonts found in a bundle.
+    ///
+    /// - Parameter path: The absolute path to the bundle.
     class func loadFontsForBundle(withPath path: String) {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path) as [String]
@@ -78,11 +75,9 @@ fileprivate extension FontBlaster {
         }
     }
 
-    /**
-        Loads all fonts found in a bundle that is loaded within another bundle.
-
-        - parameter path: The absolute path to the bundle.
-    */
+    /// Loads all fonts found in a bundle that is loaded within another bundle.
+    ///
+    /// - Parameter path: The absolute path to the bundle.
     class func loadFontsFromBundlesFoundInBundle(path: String) {
 
         do {
@@ -104,11 +99,9 @@ fileprivate extension FontBlaster {
 
     }
 
-    /**
-        Loads a specific font.
-
-        - parameter font: The font to load.
-    */
+    /// Loads a specific font.
+    ///
+    /// - Parameter font: The font to load.
     class func loadFont(font: Font) {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
@@ -159,13 +152,13 @@ fileprivate extension FontBlaster {
 // MARK: - Helpers (Miscellaneous)
 
 fileprivate extension FontBlaster {
-    /**
-        Parses a font into its name and extension components.
-
-        - parameter path: The absolute path to the font file.
-        - parameter contents: The contents of an NSBundle as an array of String objects.
-        - returns: A tuple with the font's name and extension.
-    */
+    /// Parses all of the font into their name and extension components.
+    ///
+    /// - Parameters:
+    ///     - path: The absolute path to the font file.
+    ///     - contents: The contents of an Bundle as an array of String objects.
+    /// 
+    /// - Returns: A an array of Font objects.
     class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
@@ -184,22 +177,19 @@ fileprivate extension FontBlaster {
         return fonts
     }
 
-    /**
-        Parses a font into its name and extension components.
-
-        - parameter The: name of the font.
-        - returns: A tuple with the font's name and extension.
-    */
+    /// Parses a font into its name and extension components.
+    ///
+    /// - Parameter name: The name of the font.
+    /// 
+    /// - Returns: A tuple with the font's name and extension.
     class func font(fromName name: String) -> (FontName, FontExtension) {
         let components = name.characters.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
 
-    /**
-        Prints debug messages to the console if debugEnabled is set to true.
-
-        - parameter The: status to print to the console.
-    */
+    /// Prints debug messages to the console if debugEnabled is set to true.
+    ///
+    /// - Parameter message: The status to print to the console.
     class func printDebugMessage(message: String) {
         if debugEnabled == true {
             print("[FontBlaster]: \(message)")
