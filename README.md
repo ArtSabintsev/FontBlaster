@@ -6,7 +6,7 @@
 ---
 ## About
 
-Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's NSBundles with one line of code.
+Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's Bundles with one line of code.
 
 ## Features
 - [x] CocoaPods Support
@@ -57,23 +57,23 @@ github "ArtSabintsev/FontBlaster" "swift2.3"
 
 ## Setup
 
-Typically, all fonts are automatically found in `NSBundle.mainBundle()`. Even if you have a custom bundle, it's usually lodged inside of the `mainBundle.` Therefore, to load all the fonts in your application, irrespective of the bundle it's in, simply call:
+Typically, all fonts are automatically found in `Bundle.main`. Even if you have a custom bundle, it's usually lodged inside of the `mainBundle.` Therefore, to load all the fonts in your application, irrespective of the bundle it's in, simply call:
 
 ```Swift
-FontBlaster.blast() // Defaults to NSBundle.mainBundle() if no arguments are passed
+FontBlaster.blast() // Defaults to Bundle.main if no arguments are passed
 ```
 
-If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `NSBundle` in the `blast(_:)` method:
+If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `Bundle` in the `blast(_:)` method:
 
 ```Swift
-FontBlaster.blast(bundle:) // Takes one argument of type NSBundle, or as mentioned above, defaults to NSBundle.mainBundle() if no arguments are passed
+FontBlaster.blast(bundle:) // Takes one argument of type Bundle, or as mentioned above, defaults to Bundle.main if no arguments are passed
 ```
 
-If you need a list of all of the loaded fonts, an overloaded version of the `blast(_:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `NSBundle` or defaults to `NSBundle.mainBundle()` if no argument is passed.
+If you need a list of all of the loaded fonts, an overloaded version of the `blast(_:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `Bundle` or defaults to `Bundle.main` if no argument is passed.
 
 ```Swift
 
-// Defaults to NSBundle.mainBundle() as no argument is passed
+// Defaults to Bundle.main as no argument is passed
 FontBlaster.blast() { (fonts) in
   print(fonts) // fonts is an array of Strings containing font names
 }
