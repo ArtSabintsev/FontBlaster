@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name         = "FontBlaster"
-  s.version      = "3.0.2"
+  s.version      = "3.0.3"
   s.summary      = "Programmatically load custom fonts into your iOS app."
 
   s.description  = <<-DESC
-Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all  fonts in your app's NSBundles with one line of code.
+Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all  fonts in your app's Bundle/NSBundle with one line of code.
 
                    DESC
 
