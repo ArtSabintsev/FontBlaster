@@ -26,23 +26,11 @@ For Swift 3.0 support:
 pod 'FontBlaster'
 ```
 
-For Swift 2.3 support:
-
-```ruby
-pod 'FontBlaster' :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift2.3'
-```
-
 ### Carthage
 For Swift 3.0 support:
 
 ``` swift
 github "ArtSabintsev/FontBlaster"
-```
-
-For Swift 2.3 support:
-
-```swift
-github "ArtSabintsev/FontBlaster" "swift2.3"
 ```
 
 ### Swift Package Manager
