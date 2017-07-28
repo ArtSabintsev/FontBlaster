@@ -6,22 +6,19 @@
 //  Copyright (c) 2015 Arthur Ariel Sabintsev. All rights reserved.
 //
 
-import Foundation
 import CoreGraphics
 import CoreText
-
-// MARK: - Enums
-
-/// Limits the type of fonts that can be loaded into an application.
-private enum SupportedFontExtensions: String {
-    case TrueTypeFont = ".ttf"
-    case OpenTypeFont = ".otf"
-}
-
+import Foundation
+import UIKit
 
 // MARK: - FontBlaster
 
 final public class FontBlaster {
+
+    fileprivate enum SupportedFontExtensions: String {
+        case TrueTypeFont = ".ttf"
+        case OpenTypeFont = ".otf"
+    }
 
     fileprivate typealias FontPath = String
     fileprivate typealias FontName = String
@@ -52,10 +49,9 @@ final public class FontBlaster {
     }
 }
 
-
 // MARK: - Helpers (Font Loading)
 
-fileprivate extension FontBlaster {
+private extension FontBlaster {
     /// Loads all fonts found in a bundle.
     ///
     /// - Parameter path: The absolute path to the bundle.
@@ -79,24 +75,18 @@ fileprivate extension FontBlaster {
     ///
     /// - Parameter path: The absolute path to the bundle.
     class func loadFontsFromBundlesFoundInBundle(path: String) {
-
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-
             for item in contents {
-
                 if let url = URL(string: path),
                     item.contains(".bundle") {
                     let urlPathString = url.appendingPathComponent(item).absoluteString
                     loadFontsForBundle(withPath: urlPathString)
                 }
-
             }
-
         } catch let error as NSError {
             printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
-
     }
 
     /// Loads a specific font.
@@ -106,11 +96,9 @@ fileprivate extension FontBlaster {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
-
         let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(fontExtension)
 
         var fontError: Unmanaged<CFError>?
-
         if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
@@ -133,9 +121,7 @@ fileprivate extension FontBlaster {
                 let errorDescription = CFErrorCopyDescription(fontError)
                 printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
             }
-
         } else {
-
             guard let fontError = fontError?.takeRetainedValue() else {
                 printDebugMessage(message: "Failed to load font '\(fontName)'.")
                 return
@@ -144,15 +130,13 @@ fileprivate extension FontBlaster {
             let errorDescription = CFErrorCopyDescription(fontError)
             printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
         }
-
     }
 }
 
-
 // MARK: - Helpers (Miscellaneous)
 
-fileprivate extension FontBlaster {
-    /// Parses all of the font into their name and extension components.
+private extension FontBlaster {
+    /// Parses all of the fonts into their name and extension components.
     ///
     /// - Parameters:
     ///     - path: The absolute path to the font file.
@@ -164,7 +148,7 @@ fileprivate extension FontBlaster {
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
 
-            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(SupportedFontExtensions.OpenTypeFont.rawValue) {
+            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(FontBlaster.SupportedFontExtensions.OpenTypeFont.rawValue) {
                 parsedFont = font(fromName: fontName)
             }
 
@@ -195,5 +179,4 @@ fileprivate extension FontBlaster {
             print("[FontBlaster]: \(message)")
         }
     }
-
 }
