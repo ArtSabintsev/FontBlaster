@@ -6,22 +6,19 @@
 //  Copyright (c) 2015 Arthur Ariel Sabintsev. All rights reserved.
 //
 
-import Foundation
 import CoreGraphics
 import CoreText
-
-// MARK: - Enums
-
-/// Limits the type of fonts that can be loaded into an application.
-private enum SupportedFontExtensions: String {
-    case TrueTypeFont = ".ttf"
-    case OpenTypeFont = ".otf"
-}
-
+import Foundation
+import UIKit
 
 // MARK: - FontBlaster
 
 final public class FontBlaster {
+
+    fileprivate enum SupportedFontExtensions: String {
+        case TrueTypeFont = ".ttf"
+        case OpenTypeFont = ".otf"
+    }
 
     fileprivate typealias FontPath = String
     fileprivate typealias FontName = String
@@ -55,7 +52,7 @@ final public class FontBlaster {
 
 // MARK: - Helpers (Font Loading)
 
-fileprivate extension FontBlaster {
+private extension FontBlaster {
     /// Loads all fonts found in a bundle.
     ///
     /// - Parameter path: The absolute path to the bundle.
@@ -79,7 +76,6 @@ fileprivate extension FontBlaster {
     ///
     /// - Parameter path: The absolute path to the bundle.
     class func loadFontsFromBundlesFoundInBundle(path: String) {
-
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
 
@@ -92,11 +88,9 @@ fileprivate extension FontBlaster {
                 }
 
             }
-
         } catch let error as NSError {
             printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
         }
-
     }
 
     /// Loads a specific font.
@@ -151,7 +145,7 @@ fileprivate extension FontBlaster {
 
 // MARK: - Helpers (Miscellaneous)
 
-fileprivate extension FontBlaster {
+private extension FontBlaster {
     /// Parses all of the font into their name and extension components.
     ///
     /// - Parameters:
@@ -164,7 +158,7 @@ fileprivate extension FontBlaster {
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
 
-            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(SupportedFontExtensions.OpenTypeFont.rawValue) {
+            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(FontBlaster.SupportedFontExtensions.OpenTypeFont.rawValue) {
                 parsedFont = font(fromName: fontName)
             }
 
