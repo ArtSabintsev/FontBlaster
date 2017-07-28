@@ -136,7 +136,7 @@ private extension FontBlaster {
 // MARK: - Helpers (Miscellaneous)
 
 private extension FontBlaster {
-    /// Parses all of the font into their name and extension components.
+    /// Parses all of the fonts into their name and extension components.
     ///
     /// - Parameters:
     ///     - path: The absolute path to the font file.
