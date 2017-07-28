@@ -49,7 +49,6 @@ final public class FontBlaster {
     }
 }
 
-
 // MARK: - Helpers (Font Loading)
 
 private extension FontBlaster {
@@ -78,15 +77,12 @@ private extension FontBlaster {
     class func loadFontsFromBundlesFoundInBundle(path: String) {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-
             for item in contents {
-
                 if let url = URL(string: path),
                     item.contains(".bundle") {
                     let urlPathString = url.appendingPathComponent(item).absoluteString
                     loadFontsForBundle(withPath: urlPathString)
                 }
-
             }
         } catch let error as NSError {
             printDebugMessage(message: "There was an error accessing bundle with path. \nPath: \(path).\nError: \(error)")
@@ -100,11 +96,9 @@ private extension FontBlaster {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
-
         let fontFileURL = URL(fileURLWithPath: fontPath).appendingPathComponent(fontName).appendingPathExtension(fontExtension)
 
         var fontError: Unmanaged<CFError>?
-
         if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
@@ -127,9 +121,7 @@ private extension FontBlaster {
                 let errorDescription = CFErrorCopyDescription(fontError)
                 printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
             }
-
         } else {
-
             guard let fontError = fontError?.takeRetainedValue() else {
                 printDebugMessage(message: "Failed to load font '\(fontName)'.")
                 return
@@ -138,10 +130,8 @@ private extension FontBlaster {
             let errorDescription = CFErrorCopyDescription(fontError)
             printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
         }
-
     }
 }
-
 
 // MARK: - Helpers (Miscellaneous)
 
@@ -189,5 +179,4 @@ private extension FontBlaster {
             print("[FontBlaster]: \(message)")
         }
     }
-
 }
