@@ -11,17 +11,38 @@ import FontBlaster
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var boldLabel: UILabel!
-    @IBOutlet weak var boldItalicLabel: UILabel!
-    @IBOutlet weak var extraBoldLabel: UILabel!
-    @IBOutlet weak var extraBoldItaliclabel: UILabel!
-    @IBOutlet weak var italicLabel: UILabel!
-    @IBOutlet weak var lightLabel: UILabel!
-    @IBOutlet weak var lightItalicLabel: UILabel!
-    @IBOutlet weak var regularLabel: UILabel!
-    @IBOutlet weak var semiboldLabel: UILabel!
-    @IBOutlet weak var semiboldItalicLabel: UILabel!
-    @IBOutlet weak var loadButton: UIButton!
+    @IBOutlet
+    var boldLabel: UILabel!
+
+    @IBOutlet
+    var boldItalicLabel: UILabel!
+
+    @IBOutlet
+    var extraBoldLabel: UILabel!
+
+    @IBOutlet
+    var extraBoldItaliclabel: UILabel!
+
+    @IBOutlet
+    var italicLabel: UILabel!
+
+    @IBOutlet
+    var lightLabel: UILabel!
+
+    @IBOutlet
+    var lightItalicLabel: UILabel!
+
+    @IBOutlet
+    var regularLabel: UILabel!
+
+    @IBOutlet
+    var semiboldLabel: UILabel!
+
+    @IBOutlet
+    var semiboldItalicLabel: UILabel!
+
+    @IBOutlet
+    var loadButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -19,32 +19,48 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 ## Installation Instructions
 
+| Swift Version |  Branch Name  | Will Continue to Receive Updates?
+| ------------- | ------------- |  -------------
+| 4.0  | master   | **Yes**
+| 3.2  | swift3.2 | No
+| 3.1  | swift3.1  | No
+
 #### CocoaPods
-For Swift 3 support:
+For Swift 4 support:
 ```ruby
 pod 'FontBlaster'
 ```
 
-For Swift 4 support:
+For Swift 3.2 support:
 ```ruby
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4'
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2'
+```
+
+For Swift 3.1 support:
+```ruby
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.1'
 ```
 
 ### Carthage
-For Swift 3 support:
+For Swift 4 support:
 
 ```swift
 github "ArtSabintsev/FontBlaster"
 ```
 
-For Swift 4 support:
+For Swift 3.2 support:
 ```swift
-github "ArtSabintsev/FontBlaster", "swift4"
+github "ArtSabintsev/FontBlaster", "swift3.2"
+```
+
+For Swift 3.1 support:
+```swift
+github "ArtSabintsev/FontBlaster", "swift3.1"
 ```
 
 ### Swift Package Manager
 ``` swift
-.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 3)
+.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 4)
 ```
 
 ### Manual
