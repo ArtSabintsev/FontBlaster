@@ -1,6 +1,6 @@
 # FontBlaster
 
-### Programmatically load custom fonts into your iOS app.
+### Programmatically load custom fonts into your iOS and tvOS app.
 
 ![Swift Support](https://img.shields.io/badge/Swift-3.1%2C%203.2%2C%204.0-orange.svg)
 
