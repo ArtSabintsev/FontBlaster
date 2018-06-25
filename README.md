@@ -28,7 +28,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 | 3.1  | swift3.1  | No
 
 #### CocoaPods
-For Swift 4 support:
+For Swift 4.1 support:
 ```ruby
 pod 'FontBlaster'
 ```
@@ -44,7 +44,7 @@ pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :b
 ```
 
 ### Carthage
-For Swift 4 support:
+For Swift 4.1 support:
 
 ```swift
 github "ArtSabintsev/FontBlaster"
