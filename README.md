@@ -4,7 +4,7 @@
 
 ![Swift Support](https://img.shields.io/badge/Swift-3.1%2C%203.2%2C%204.1-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20-lightgray.svg?style=flat)
 
-[![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/) [![CocoaPods](https://img.shields.io/cocoapods/dt/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster) [![CocoaPods](https://img.shields.io/cocoapods/dm/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)
+[![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 ---
 ## About
 
