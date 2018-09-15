@@ -107,7 +107,7 @@ FontBlaster.blast()
 ```
 
 ## Sample Project
-A Sample iOS project is included in the repo. When you launch the app, all fonts will be loaded programatically via **FontBlaster** and displayed in a table view.
+A Sample iOS project is included in the repo. After launching the app, you can press the load fonts button. All custom fonts included in the project will be loaded programatically via **FontBlaster** and displayed in a table view.
 
 ## Inspiration
 This project builds upon an old solution that [Marco Arment](http://twitter.com/marcoarment) proposed and wrote about on his [blog](http://www.marco.org/2012/12/21/ios-dynamic-font-loading).

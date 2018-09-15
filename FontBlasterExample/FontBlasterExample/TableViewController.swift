@@ -6,21 +6,11 @@
 //  Copyright © 2018 Marcelino Alberdi Pereira. All rights reserved.
 //
 
-import UIKit
 import FontBlaster
+import UIKit
 
-class TableViewController: UITableViewController {
-    private var fontNames: [String] = []
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        FontBlaster.debugEnabled = true
-        FontBlaster.blast { fonts -> Void in
-            print("Loaded Fonts", fonts)
-            self.fontNames = fonts.sorted()
-            self.tableView.reloadData()
-        }
-    }
+final class TableViewController: UITableViewController {
+    private lazy var fontNames: [String] = []
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fontNames.count
@@ -32,5 +22,15 @@ class TableViewController: UITableViewController {
         cell.textLabel?.text = fontName
         cell.textLabel?.font = UIFont(name: fontName, size: 20)
         return cell
+    }
+
+    @IBAction func loadButtonAction(_ sender: Any) {
+        navigationItem.rightBarButtonItem = nil
+        FontBlaster.debugEnabled = true
+        FontBlaster.blast { fonts -> Void in
+            print("Loaded Fonts", fonts)
+            self.fontNames = fonts.sorted()
+            self.tableView.reloadData()
+        }
     }
 }
