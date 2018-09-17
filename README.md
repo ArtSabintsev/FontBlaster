@@ -37,8 +37,6 @@ pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :b
 ```
 
 ### Carthage
-For Swift 4.1 support:
-
 ```swift
 github "ArtSabintsev/FontBlaster" // Swift 4.2
 github "ArtSabintsev/FontBlaster", "swift4.1" // Swift 4.1
