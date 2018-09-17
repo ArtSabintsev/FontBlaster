@@ -9,7 +9,7 @@
 import UIKit
 import FontBlaster
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet
     var boldLabel: UILabel!
@@ -71,4 +71,3 @@ class ViewController: UIViewController {
     }
     
 }
-
