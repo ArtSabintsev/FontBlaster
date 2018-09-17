@@ -30,20 +30,20 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 #### CocoaPods
 ```ruby
-pod 'FontBlaster' // Swift 4.2
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.1' // Swift 4.1
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' // Swift 3.2
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' // Swift 3.1
+pod 'FontBlaster' # Swift 4.2
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.1' # Swift 4.1
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.2
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.1
 ```
 
 ### Carthage
 For Swift 4.1 support:
 
 ```swift
-github "ArtSabintsev/FontBlaster" # Swift 4.2
-github "ArtSabintsev/FontBlaster", "swift4.1" # Swift 4.1
-github "ArtSabintsev/FontBlaster", "swift3.2" # Swift 3.2
-github "ArtSabintsev/FontBlaster", "swift3.1" # Swift 3.1
+github "ArtSabintsev/FontBlaster" // Swift 4.2
+github "ArtSabintsev/FontBlaster", "swift4.1" // Swift 4.1
+github "ArtSabintsev/FontBlaster", "swift3.2" // Swift 3.2
+github "ArtSabintsev/FontBlaster", "swift3.1" // Swift 3.1
 ```
 
 ### Swift Package Manager
