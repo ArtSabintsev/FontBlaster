@@ -24,9 +24,9 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 | Swift Version |  Branch Name  | Will Continue to Receive Updates?
 | ------------- | ------------- |  -------------
 | 4.2  | master   | **Yes**
-| 4.1  | master   | No
+| 4.1  | swift4.1 | No
 | 3.2  | swift3.2 | No
-| 3.1  | swift3.1  | No
+| 3.1  | swift3.1 | No
 
 ### CocoaPods
 ```ruby
