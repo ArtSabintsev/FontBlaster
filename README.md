@@ -40,10 +40,10 @@ pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :b
 For Swift 4.1 support:
 
 ```swift
-github "ArtSabintsev/FontBlaster" // Swift 4.2
-github "ArtSabintsev/FontBlaster", "swift4.1" // Swift 4.1
-github "ArtSabintsev/FontBlaster", "swift3.2" // Swift 3.2
-github "ArtSabintsev/FontBlaster", "swift3.1" // Swift 3.1
+github "ArtSabintsev/FontBlaster" # Swift 4.2
+github "ArtSabintsev/FontBlaster", "swift4.1" # Swift 4.1
+github "ArtSabintsev/FontBlaster", "swift3.2" # Swift 3.2
+github "ArtSabintsev/FontBlaster", "swift3.1" # Swift 3.1
 ```
 
 ### Swift Package Manager
