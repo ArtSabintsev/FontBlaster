@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0944CE7421492C1E00304C13 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0944CE7321492C1E00304C13 /* TableViewController.swift */; };
 		554B835E1E6AABCE00798F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B83561E6AABCE00798F7A /* AppDelegate.swift */; };
 		554B835F1E6AABCE00798F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554B83571E6AABCE00798F7A /* LaunchScreen.xib */; };
 		554B83601E6AABCE00798F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554B83591E6AABCE00798F7A /* Main.storyboard */; };
 		554B83611E6AABCE00798F7A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 554B835B1E6AABCE00798F7A /* Images.xcassets */; };
-		554B83631E6AABCE00798F7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B835D1E6AABCE00798F7A /* ViewController.swift */; };
 		554B83701E6AABD400798F7A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 554B83651E6AABD400798F7A /* LICENSE.txt */; };
 		554B83711E6AABD400798F7A /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 554B83661E6AABD400798F7A /* OpenSans-Bold.ttf */; };
 		554B83721E6AABD400798F7A /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 554B83671E6AABD400798F7A /* OpenSans-BoldItalic.ttf */; };
@@ -54,12 +54,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0944CE7321492C1E00304C13 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		554B83561E6AABCE00798F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554B83581E6AABCE00798F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		554B835A1E6AABCE00798F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		554B835B1E6AABCE00798F7A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		554B835C1E6AABCE00798F7A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		554B835D1E6AABCE00798F7A /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		554B83651E6AABD400798F7A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		554B83661E6AABD400798F7A /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		554B83671E6AABD400798F7A /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				554B83591E6AABCE00798F7A /* Main.storyboard */,
 				554B835B1E6AABCE00798F7A /* Images.xcassets */,
 				554B835C1E6AABCE00798F7A /* Info.plist */,
-				554B835D1E6AABCE00798F7A /* ViewController.swift */,
+				0944CE7321492C1E00304C13 /* TableViewController.swift */,
 			);
 			path = FontBlasterExample;
 			sourceTree = "<group>";
@@ -295,7 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				554B83631E6AABCE00798F7A /* ViewController.swift in Sources */,
+				0944CE7421492C1E00304C13 /* TableViewController.swift in Sources */,
 				554B835E1E6AABCE00798F7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
