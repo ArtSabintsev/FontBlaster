@@ -2,10 +2,10 @@
 
 ### Programmatically load custom fonts into your iOS and tvOS app.
 
-![Swift Support](https://img.shields.io/badge/Swift-4.2%2C%204.1%2C%203.2%2C%203.1-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20-lightgray.svg?style=flat)
+![Swift Support](https://img.shields.io/badge/Swift-4.2%2C%204.1%2C%203.2%2C%203.1-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
-[![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 ---
+
 ## About
 
 Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's Bundles with one line of code.
