@@ -114,7 +114,7 @@ extension FontBlaster {
   }
 
   class func workaroundDeadlock() {
-    _ = UIFont()
+    _ = UIFont.systemFont(ofSize: 10)
   }
 }
 
