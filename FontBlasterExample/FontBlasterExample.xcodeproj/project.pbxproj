@@ -27,6 +27,7 @@
 		554B83871E6B50C400798F7A /* FontBlaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 554B83801E6B50C400798F7A /* FontBlaster.framework */; };
 		554B83881E6B50C400798F7A /* FontBlaster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 554B83801E6B50C400798F7A /* FontBlaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		558967E41E6BA9EE002CF66C /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558967E31E6BA9EE002CF66C /* FontBlaster.swift */; };
+		8DB84097221DCD13007B1098 /* KineticPlasma in Resources */ = {isa = PBXBuildFile; fileRef = 8DB84096221DCD13007B1098 /* KineticPlasma */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		554B83821E6B50C400798F7A /* FontBlaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontBlaster.h; sourceTree = "<group>"; };
 		554B83831E6B50C400798F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558967E31E6BA9EE002CF66C /* FontBlaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontBlaster.swift; path = ../../Sources/FontBlaster.swift; sourceTree = "<group>"; };
+		8DB84096221DCD13007B1098 /* KineticPlasma */ = {isa = PBXFileReference; lastKnownFileType = folder; path = KineticPlasma; sourceTree = SOURCE_ROOT; };
 		8E7CBE8B1AF9BD7200009618 /* FontBlasterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontBlasterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -100,6 +102,7 @@
 		554B83551E6AABCE00798F7A /* FontBlasterExample */ = {
 			isa = PBXGroup;
 			children = (
+				8DB84096221DCD13007B1098 /* KineticPlasma */,
 				554B83641E6AABD400798F7A /* OpenSans */,
 				554B83561E6AABCE00798F7A /* AppDelegate.swift */,
 				554B83571E6AABCE00798F7A /* LaunchScreen.xib */,
@@ -264,6 +267,7 @@
 			files = (
 				554B837A1E6AABD400798F7A /* OpenSans-SemiboldItalic.ttf in Resources */,
 				554B83741E6AABD400798F7A /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				8DB84097221DCD13007B1098 /* KineticPlasma in Resources */,
 				554B83771E6AABD400798F7A /* OpenSans-LightItalic.ttf in Resources */,
 				554B83611E6AABCE00798F7A /* Images.xcassets in Resources */,
 				554B83751E6AABD400798F7A /* OpenSans-Italic.ttf in Resources */,
