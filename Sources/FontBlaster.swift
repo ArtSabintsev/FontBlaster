@@ -13,8 +13,21 @@ public final class FontBlaster {
     completion handler: (([String]) -> Void)? = nil
   ) {
     let path = bundle.bundlePath
-    loadFontsForBundle(path)
-    loadFontsFromBundlesFoundInBundle(path)
+    loadFontsAt(path)
+    loadFontsFromBundlesAt(path)
+    handler?(loadedFonts)
+  }
+
+  public class func blast(
+    at pathUrl: URL?,
+    completion handler: (([String]) -> Void)? = nil
+  ) {
+    guard let path = pathUrl?.absoluteString else {
+      handler?(loadedFonts)
+      return
+    }
+    loadFontsAt(path)
+    loadFontsFromBundlesAt(path)
     handler?(loadedFonts)
   }
 }
@@ -40,7 +53,7 @@ enum SupportedFontExtensions: String {
 }
 
 extension FontBlaster {
-  class func loadFontsForBundle(_ path: String) {
+  class func loadFontsAt(_ path: String) {
     do {
       let contents = try FileManager.default.contentsOfDirectory(atPath: path)
       let loadedFonts = fonts(path, contents)
@@ -60,7 +73,7 @@ extension FontBlaster {
     }
   }
 
-  class func loadFontsFromBundlesFoundInBundle(_ path: String) {
+  class func loadFontsFromBundlesAt(_ path: String) {
     do {
       let contents = try FileManager.default.contentsOfDirectory(atPath: path)
       for item in contents {
@@ -68,7 +81,7 @@ extension FontBlaster {
           continue
         }
         let urlPathString = url.appendingPathComponent(item).absoluteString
-        loadFontsForBundle(urlPathString)
+        loadFontsAt(urlPathString)
       }
     } catch let error as NSError {
       log("""
