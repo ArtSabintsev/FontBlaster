@@ -9,26 +9,30 @@ public final class FontBlaster {
   public static var loadedFonts: [String] = []
 
   public class func blast(
-    bundle: Bundle = .main,
+    atPath path: String?,
     completion handler: (([String]) -> Void)? = nil
   ) {
-    let path = bundle.bundlePath
-    loadFontsAt(path)
-    loadFontsFromBundlesAt(path)
-    handler?(loadedFonts)
-  }
-
-  public class func blast(
-    at pathUrl: URL?,
-    completion handler: (([String]) -> Void)? = nil
-  ) {
-    guard let path = pathUrl?.absoluteString else {
+    guard let path = path else {
       handler?(loadedFonts)
       return
     }
     loadFontsAt(path)
     loadFontsFromBundlesAt(path)
     handler?(loadedFonts)
+  }
+
+  public class func blast(
+    bundle: Bundle = .main,
+    completion handler: (([String]) -> Void)? = nil
+  ) {
+    blast(atPath: bundle.bundlePath, completion: handler)
+  }
+
+  public class func blast(
+    at pathUrl: URL?,
+    completion handler: (([String]) -> Void)? = nil
+  ) {
+    blast(atPath: pathUrl?.absoluteString, completion: handler)
   }
 }
 
