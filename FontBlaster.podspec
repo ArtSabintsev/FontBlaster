@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 # Version
-s.version       = "4.1.0"
+s.version       = "5.0.0"
 s.swift_version = "4.2"
 
 # Meta
@@ -10,7 +10,7 @@ s.homepage     = "https://github.com/ArtSabintsev/FontBlaster"
 s.license      = "MIT"
 s.authors      = { "Arthur Ariel Sabintsev" => "arthur@sabintsev.com"}
 s.description  = <<-DESC
-Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all  fonts in your app's Bundle/NSBundle with one line of code.
+Say goodbye to importing custom fonts via property lists as **FontBlaster** imports and loads all fonts in your app's Bundle/NSBundle or local URL with one line of code.
                  DESC
 
 # Deployment Targets
