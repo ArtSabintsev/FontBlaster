@@ -6,14 +6,13 @@ import UIKit
 
 public final class FontBlaster {
   public static var debugEnabled = false
-  public static var loadedFonts: [String] = []
 
   public class func blast(
     atPath path: String?,
     completion handler: (([String]) -> Void)? = nil
   ) {
     guard let path = path else {
-      handler?(loadedFonts)
+      handler?([])
       return
     }
     blast(at: URL(string: path), completion: handler)
@@ -31,12 +30,13 @@ public final class FontBlaster {
     completion handler: (([String]) -> Void)? = nil
   ) {
     guard let url = url else {
-      handler?(loadedFonts)
+      handler?([])
       return
     }
-    loadFonts(at: url)
-    loadFontsFromBundles(at: url)
-    handler?(loadedFonts)
+    var loadedFonts: [Font] = []
+    loadedFonts += loadFonts(at: url)
+    loadedFonts += loadFontsFromBundles(at: url)
+    handler?(loadedFonts.map { $0.name })
   }
 }
 
@@ -61,20 +61,18 @@ enum SupportedFontExtensions: String {
 }
 
 extension FontBlaster {
-  class func loadFonts(at url: URL) {
+  class func loadFonts(at url: URL) -> [Font] {
+    var loadedFonts: [Font] = []
     do {
       let contents = try FileManager.default.contentsOfDirectory(
         at: url,
         includingPropertiesForKeys: nil,
         options: [.skipsHiddenFiles]
       )
-      let loadedFonts = fonts(contents)
-      if !loadedFonts.isEmpty {
-        for font in loadedFonts {
-          loadFont(font)
+      for font in fonts(contents) {
+        if let lf = loadFont(font) {
+          loadedFonts.append(lf)
         }
-      } else {
-        log("No fonts were found in url: \(url).")
       }
     } catch let error as NSError {
       log("""
@@ -83,9 +81,11 @@ extension FontBlaster {
       Error: \(error)
       """)
     }
+    return loadedFonts
   }
 
-  class func loadFontsFromBundles(at url: URL) {
+  class func loadFontsFromBundles(at url: URL) -> [Font] {
+    var loadedFonts: [Font] = []
     do {
       let contents = try FileManager.default.contentsOfDirectory(
         at: url,
@@ -96,7 +96,7 @@ extension FontBlaster {
         guard item.absoluteString.contains(".bundle") else {
           continue
         }
-        loadFonts(at: item)
+        loadedFonts += loadFonts(at: item)
       }
     } catch let error as NSError {
       log("""
@@ -105,11 +105,14 @@ extension FontBlaster {
       Error: \(error)
       """)
     }
+    return loadedFonts
   }
 
-  class func loadFont(_ font: Font) {
+  class func loadFont(_ font: Font) -> Font? {
     let fileURL: FontPath = font.url
     let name = font.name
+    let ext = font.ext
+    var loadedFontName: String?
     var error: Unmanaged<CFError>?
     if let data = try? Data(contentsOf: fileURL) as CFData,
       let dataProvider = CGDataProvider(data: data) {
@@ -120,7 +123,7 @@ extension FontBlaster {
       if CTFontManagerRegisterGraphicsFont(ref!, &error) {
         if let postScriptName = ref?.postScriptName {
           log("Successfully loaded font: '\(postScriptName)'.")
-          loadedFonts.append(String(postScriptName))
+          loadedFontName = String(postScriptName)
         }
       } else if let error = error?.takeRetainedValue() {
         let errorDescription = CFErrorCopyDescription(error)
@@ -129,11 +132,15 @@ extension FontBlaster {
     } else {
       guard let error = error?.takeRetainedValue() else {
         log("Failed to load font '\(name)'.")
-        return
+        return nil
       }
       let errorDescription = CFErrorCopyDescription(error)
       log("Failed to load font '\(name)': \(String(describing: errorDescription))")
     }
+    if let lfn = loadedFontName {
+      return (fileURL, lfn, ext)
+    }
+    return nil
   }
 
   class func workaroundDeadlock() {
