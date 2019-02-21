@@ -30,6 +30,7 @@
 		8DB84099221DCFE7007B1098 /* BundleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB84098221DCFE7007B1098 /* BundleVC.swift */; };
 		8DB8409B221DD1C0007B1098 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8409A221DD1C0007B1098 /* BaseVC.swift */; };
 		8DE3385C221E8D0E005016DC /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3385B221E8D0E005016DC /* TabVC.swift */; };
+		8DE3385E221E9142005016DC /* LocalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3385D221E9141005016DC /* LocalVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		8DB84098221DCFE7007B1098 /* BundleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleVC.swift; sourceTree = "<group>"; };
 		8DB8409A221DD1C0007B1098 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		8DE3385B221E8D0E005016DC /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
+		8DE3385D221E9141005016DC /* LocalVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalVC.swift; sourceTree = "<group>"; };
 		8E7CBE8B1AF9BD7200009618 /* FontBlasterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontBlasterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,16 +108,17 @@
 		554B83551E6AABCE00798F7A /* FontBlasterExample */ = {
 			isa = PBXGroup;
 			children = (
-				8DB84096221DCD13007B1098 /* KineticPlasma */,
-				554B83641E6AABD400798F7A /* OpenSans */,
 				554B83561E6AABCE00798F7A /* AppDelegate.swift */,
-				554B83571E6AABCE00798F7A /* LaunchScreen.xib */,
-				554B83591E6AABCE00798F7A /* Main.storyboard */,
-				8DB84098221DCFE7007B1098 /* BundleVC.swift */,
 				8DB8409A221DD1C0007B1098 /* BaseVC.swift */,
-				8DE3385B221E8D0E005016DC /* TabVC.swift */,
+				8DB84098221DCFE7007B1098 /* BundleVC.swift */,
 				554B835B1E6AABCE00798F7A /* Images.xcassets */,
 				554B835C1E6AABCE00798F7A /* Info.plist */,
+				8DB84096221DCD13007B1098 /* KineticPlasma */,
+				554B83571E6AABCE00798F7A /* LaunchScreen.xib */,
+				8DE3385D221E9141005016DC /* LocalVC.swift */,
+				554B83591E6AABCE00798F7A /* Main.storyboard */,
+				554B83641E6AABD400798F7A /* OpenSans */,
+				8DE3385B221E8D0E005016DC /* TabVC.swift */,
 			);
 			path = FontBlasterExample;
 			sourceTree = "<group>";
@@ -141,8 +144,8 @@
 		554B83811E6B50C400798F7A /* FontBlaster */ = {
 			isa = PBXGroup;
 			children = (
-				558967E31E6BA9EE002CF66C /* FontBlaster.swift */,
 				554B83821E6B50C400798F7A /* FontBlaster.h */,
+				558967E31E6BA9EE002CF66C /* FontBlaster.swift */,
 				554B83831E6B50C400798F7A /* Info.plist */,
 			);
 			path = FontBlaster;
@@ -151,8 +154,8 @@
 		8E7CBE821AF9BD7200009618 = {
 			isa = PBXGroup;
 			children = (
-				554B83551E6AABCE00798F7A /* FontBlasterExample */,
 				554B83811E6B50C400798F7A /* FontBlaster */,
+				554B83551E6AABCE00798F7A /* FontBlasterExample */,
 				8E7CBE8C1AF9BD7200009618 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -160,8 +163,8 @@
 		8E7CBE8C1AF9BD7200009618 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E7CBE8B1AF9BD7200009618 /* FontBlasterExample.app */,
 				554B83801E6B50C400798F7A /* FontBlaster.framework */,
+				8E7CBE8B1AF9BD7200009618 /* FontBlasterExample.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DE3385E221E9142005016DC /* LocalVC.swift in Sources */,
 				8DB84099221DCFE7007B1098 /* BundleVC.swift in Sources */,
 				8DB8409B221DD1C0007B1098 /* BaseVC.swift in Sources */,
 				8DE3385C221E8D0E005016DC /* TabVC.swift in Sources */,

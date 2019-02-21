@@ -16,30 +16,34 @@ public final class FontBlaster {
       handler?(loadedFonts)
       return
     }
-    loadFontsAt(path)
-    loadFontsFromBundlesAt(path)
-    handler?(loadedFonts)
+    blast(at: URL(string: path), completion: handler)
   }
 
   public class func blast(
     bundle: Bundle = .main,
     completion handler: (([String]) -> Void)? = nil
   ) {
-    blast(atPath: bundle.bundlePath, completion: handler)
+    blast(at: bundle.bundleURL, completion: handler)
   }
 
   public class func blast(
-    at pathUrl: URL?,
+    at url: URL?,
     completion handler: (([String]) -> Void)? = nil
   ) {
-    blast(atPath: pathUrl?.absoluteString, completion: handler)
+    guard let url = url else {
+      handler?(loadedFonts)
+      return
+    }
+    loadFonts(at: url)
+    loadFontsFromBundles(at: url)
+    handler?(loadedFonts)
   }
 }
 
-typealias FontPath = String
+typealias FontPath = URL
 typealias FontName = String
 typealias FontExtension = String
-typealias Font = (path: FontPath, name: FontName, ext: FontExtension)
+typealias Font = (url: FontPath, name: FontName, ext: FontExtension)
 
 enum SupportedFontExtensions: String {
   case trueType = "ttf"
@@ -57,53 +61,55 @@ enum SupportedFontExtensions: String {
 }
 
 extension FontBlaster {
-  class func loadFontsAt(_ path: String) {
+  class func loadFonts(at url: URL) {
     do {
-      let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-      let loadedFonts = fonts(path, contents)
+      let contents = try FileManager.default.contentsOfDirectory(
+        at: url,
+        includingPropertiesForKeys: nil,
+        options: [.skipsHiddenFiles]
+      )
+      let loadedFonts = fonts(contents)
       if !loadedFonts.isEmpty {
         for font in loadedFonts {
           loadFont(font)
         }
       } else {
-        log("No fonts were found in the bundle path: \(path).")
+        log("No fonts were found in url: \(url).")
       }
     } catch let error as NSError {
       log("""
-      There was an error loading fonts from the bundle.
-      Path: \(path).
+      There was an error loading fonts.
+      Path: \(url).
       Error: \(error)
       """)
     }
   }
 
-  class func loadFontsFromBundlesAt(_ path: String) {
+  class func loadFontsFromBundles(at url: URL) {
     do {
-      let contents = try FileManager.default.contentsOfDirectory(atPath: path)
+      let contents = try FileManager.default.contentsOfDirectory(
+        at: url,
+        includingPropertiesForKeys: nil,
+        options: [.skipsHiddenFiles]
+      )
       for item in contents {
-        guard let url = URL(string: path), item.contains(".bundle") else {
+        guard item.absoluteString.contains(".bundle") else {
           continue
         }
-        let urlPathString = url.appendingPathComponent(item).absoluteString
-        loadFontsAt(urlPathString)
+        loadFonts(at: item)
       }
     } catch let error as NSError {
       log("""
-      There was an error accessing bundle with path.
-      Path: \(path).
+      There was an error accessing bundle with url.
+      Path: \(url).
       Error: \(error)
       """)
     }
   }
 
   class func loadFont(_ font: Font) {
-    let path: FontPath = font.path
-    let name: FontName = font.name
-    let ext: FontExtension = font.ext
-    let fileURL = URL(fileURLWithPath: path)
-      .appendingPathComponent(name)
-      .appendingPathExtension(ext)
-
+    let fileURL: FontPath = font.url
+    let name = font.name
     var error: Unmanaged<CFError>?
     if let data = try? Data(contentsOf: fileURL) as CFData,
       let dataProvider = CGDataProvider(data: data) {
@@ -136,17 +142,18 @@ extension FontBlaster {
 }
 
 extension FontBlaster {
-  class func fonts(_ path: String, _ contents: [String]) -> [Font] {
+  class func fonts(_ contents: [URL]) -> [Font] {
     var fonts = [Font]()
-    for name in contents {
-      if let parsedFont = font(name) {
-        fonts.append((path, parsedFont.0, parsedFont.1))
+    for fontUrl in contents {
+      if let parsedFont = font(fontUrl) {
+        fonts.append((fontUrl, parsedFont.0, parsedFont.1))
       }
     }
     return fonts
   }
 
-  class func font(_ name: String) -> (FontName, FontExtension)? {
+  class func font(_ fontUrl: URL) -> (FontName, FontExtension)? {
+    let name = fontUrl.lastPathComponent
     let comps = name.components(separatedBy: ".")
     if comps.count < 2 { return nil }
     let fname = comps[0 ..< comps.count - 1].joined(separator: ".")

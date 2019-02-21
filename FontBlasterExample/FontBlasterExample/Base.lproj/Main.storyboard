@@ -12,7 +12,7 @@
         <!--Path-->
         <scene sceneID="S8b-RO-O5f">
             <objects>
-                <viewController id="C6f-me-lg6" sceneMemberID="viewController">
+                <viewController id="C6f-me-lg6" customClass="LocalVC" customModule="FontBlasterExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X3V-Ho-r2j"/>
                         <viewControllerLayoutGuide type="bottom" id="czX-dS-cUf"/>
@@ -24,6 +24,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vCZ-JW-eDj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="C6f-me-lg6" id="HKx-kF-V2e"/>
+                                    <outlet property="delegate" destination="C6f-me-lg6" id="RvU-g7-oAe"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -35,6 +39,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Path" id="RS3-yG-fcp"/>
+                    <connections>
+                        <outlet property="tableView" destination="vCZ-JW-eDj" id="YHE-uW-pyW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tl-xf-AIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
