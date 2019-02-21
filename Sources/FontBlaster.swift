@@ -36,6 +36,16 @@ public final class FontBlaster {
     var loadedFonts: [Font] = []
     loadedFonts += loadFonts(at: url)
     loadedFonts += loadFontsFromBundles(at: url)
+
+    let alreadyLoaded = allLoadedFonts.map { $0.url }
+    let justLoaded = loadedFonts.map { $0.url }
+    for i in 0 ..< justLoaded.count {
+      let justLoadedUrl = justLoaded[i]
+      if alreadyLoaded.index(of: justLoadedUrl) == nil {
+        allLoadedFonts.append(loadedFonts[i])
+      }
+    }
+
     handler?(loadedFonts.map { $0.name })
   }
 }
@@ -44,6 +54,8 @@ typealias FontPath = URL
 typealias FontName = String
 typealias FontExtension = String
 typealias Font = (url: FontPath, name: FontName, ext: FontExtension)
+
+var allLoadedFonts: [Font] = []
 
 enum SupportedFontExtensions: String {
   case trueType = "ttf"
@@ -69,8 +81,12 @@ extension FontBlaster {
         includingPropertiesForKeys: nil,
         options: [.skipsHiddenFiles]
       )
+
+      let alreadyLoaded = allLoadedFonts.map { $0.url }
       for font in fonts(contents) {
-        if let lf = loadFont(font) {
+        if let idx = alreadyLoaded.index(of: font.url) {
+          loadedFonts.append(allLoadedFonts[idx])
+        } else if let lf = loadFont(font) {
           loadedFonts.append(lf)
         }
       }
