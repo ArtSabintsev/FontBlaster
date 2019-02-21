@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0944CE7421492C1E00304C13 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0944CE7321492C1E00304C13 /* TableViewController.swift */; };
 		554B835E1E6AABCE00798F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B83561E6AABCE00798F7A /* AppDelegate.swift */; };
 		554B835F1E6AABCE00798F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554B83571E6AABCE00798F7A /* LaunchScreen.xib */; };
 		554B83601E6AABCE00798F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554B83591E6AABCE00798F7A /* Main.storyboard */; };
@@ -28,6 +27,9 @@
 		554B83881E6B50C400798F7A /* FontBlaster.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 554B83801E6B50C400798F7A /* FontBlaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		558967E41E6BA9EE002CF66C /* FontBlaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558967E31E6BA9EE002CF66C /* FontBlaster.swift */; };
 		8DB84097221DCD13007B1098 /* KineticPlasma in Resources */ = {isa = PBXBuildFile; fileRef = 8DB84096221DCD13007B1098 /* KineticPlasma */; };
+		8DB84099221DCFE7007B1098 /* BundleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB84098221DCFE7007B1098 /* BundleVC.swift */; };
+		8DB8409B221DD1C0007B1098 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DB8409A221DD1C0007B1098 /* BaseVC.swift */; };
+		8DE3385C221E8D0E005016DC /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DE3385B221E8D0E005016DC /* TabVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +57,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0944CE7321492C1E00304C13 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		554B83561E6AABCE00798F7A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		554B83581E6AABCE00798F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		554B835A1E6AABCE00798F7A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,6 +78,9 @@
 		554B83831E6B50C400798F7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		558967E31E6BA9EE002CF66C /* FontBlaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FontBlaster.swift; path = ../../Sources/FontBlaster.swift; sourceTree = "<group>"; };
 		8DB84096221DCD13007B1098 /* KineticPlasma */ = {isa = PBXFileReference; lastKnownFileType = folder; path = KineticPlasma; sourceTree = SOURCE_ROOT; };
+		8DB84098221DCFE7007B1098 /* BundleVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleVC.swift; sourceTree = "<group>"; };
+		8DB8409A221DD1C0007B1098 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
+		8DE3385B221E8D0E005016DC /* TabVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		8E7CBE8B1AF9BD7200009618 /* FontBlasterExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FontBlasterExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -107,9 +111,11 @@
 				554B83561E6AABCE00798F7A /* AppDelegate.swift */,
 				554B83571E6AABCE00798F7A /* LaunchScreen.xib */,
 				554B83591E6AABCE00798F7A /* Main.storyboard */,
+				8DB84098221DCFE7007B1098 /* BundleVC.swift */,
+				8DB8409A221DD1C0007B1098 /* BaseVC.swift */,
+				8DE3385B221E8D0E005016DC /* TabVC.swift */,
 				554B835B1E6AABCE00798F7A /* Images.xcassets */,
 				554B835C1E6AABCE00798F7A /* Info.plist */,
-				0944CE7321492C1E00304C13 /* TableViewController.swift */,
 			);
 			path = FontBlasterExample;
 			sourceTree = "<group>";
@@ -298,7 +304,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0944CE7421492C1E00304C13 /* TableViewController.swift in Sources */,
+				8DB84099221DCFE7007B1098 /* BundleVC.swift in Sources */,
+				8DB8409B221DD1C0007B1098 /* BaseVC.swift in Sources */,
+				8DE3385C221E8D0E005016DC /* TabVC.swift in Sources */,
 				554B835E1E6AABCE00798F7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

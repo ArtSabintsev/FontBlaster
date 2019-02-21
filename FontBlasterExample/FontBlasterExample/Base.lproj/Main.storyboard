@@ -1,56 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="THD-4h-7Zb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c6u-jp-58l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
-        <scene sceneID="1bS-SI-NpJ">
+        <!--Path-->
+        <scene sceneID="S8b-RO-O5f">
             <objects>
-                <tableViewController id="kvI-AR-sSn" customClass="TableViewController" customModule="FontBlasterExample" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="a8P-r6-fzm">
+                <viewController id="C6f-me-lg6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="X3V-Ho-r2j"/>
+                        <viewControllerLayoutGuide type="bottom" id="czX-dS-cUf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HJN-CW-OJx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vCZ-JW-eDj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <connections>
-                            <outlet property="dataSource" destination="kvI-AR-sSn" id="cCz-P0-uMc"/>
-                            <outlet property="delegate" destination="kvI-AR-sSn" id="CPu-59-m3n"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" id="Uk4-11-0m7">
-                        <barButtonItem key="rightBarButtonItem" title="Load fonts" id="8Sj-MA-qFM">
-                            <connections>
-                                <action selector="loadButtonAction:" destination="kvI-AR-sSn" id="K0l-IA-sHt"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="N6L-Lm-oW1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <constraints>
+                            <constraint firstItem="vCZ-JW-eDj" firstAttribute="top" secondItem="HJN-CW-OJx" secondAttribute="top" id="CHJ-FG-w2V"/>
+                            <constraint firstAttribute="trailing" secondItem="vCZ-JW-eDj" secondAttribute="trailing" id="cCp-Vi-DJ9"/>
+                            <constraint firstItem="vCZ-JW-eDj" firstAttribute="leading" secondItem="HJN-CW-OJx" secondAttribute="leading" id="hxw-es-jJm"/>
+                            <constraint firstItem="czX-dS-cUf" firstAttribute="top" secondItem="vCZ-JW-eDj" secondAttribute="bottom" id="ve3-Os-1WK"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Path" id="RS3-yG-fcp"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8tl-xf-AIM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="0.0"/>
+            <point key="canvasLocation" x="327" y="164"/>
+        </scene>
+        <!--Bundle-->
+        <scene sceneID="IXq-R2-AHm">
+            <objects>
+                <viewController id="Aao-Ix-cyb" customClass="BundleVC" customModule="FontBlasterExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tY1-oR-Ubv"/>
+                        <viewControllerLayoutGuide type="bottom" id="NZq-KN-v5F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1pd-GP-JXm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4hF-dV-t2S">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Aao-Ix-cyb" id="gp9-2C-9e3"/>
+                                    <outlet property="delegate" destination="Aao-Ix-cyb" id="HcF-Ya-sC7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4hF-dV-t2S" secondAttribute="trailing" id="268-rL-YHJ"/>
+                            <constraint firstItem="NZq-KN-v5F" firstAttribute="top" secondItem="4hF-dV-t2S" secondAttribute="bottom" id="LzB-mM-559"/>
+                            <constraint firstItem="4hF-dV-t2S" firstAttribute="top" secondItem="tY1-oR-Ubv" secondAttribute="bottom" id="cD8-0i-NrW"/>
+                            <constraint firstItem="4hF-dV-t2S" firstAttribute="leading" secondItem="1pd-GP-JXm" secondAttribute="leading" id="isc-zq-l38"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Bundle" id="93h-9J-Wku"/>
+                    <connections>
+                        <outlet property="tableView" destination="4hF-dV-t2S" id="xCL-cu-log"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CKt-W2-w4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="-501"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="a5b-oA-Hyz">
+        <scene sceneID="o3T-Dx-qHi">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="THD-4h-7Zb" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TiS-kC-dOp">
+                <navigationController id="c6u-jp-58l" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NJa-TC-W4n">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="kvI-AR-sSn" kind="relationship" relationship="rootViewController" id="WeH-74-xJe"/>
+                        <segue destination="L3A-Dw-XYd" kind="relationship" relationship="rootViewController" id="sN9-dK-2uR"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VI1-g1-L47" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N13-VL-PgM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81" y="0.0"/>
+            <point key="canvasLocation" x="-1382" y="-169"/>
+        </scene>
+        <!--TabVC-->
+        <scene sceneID="v5b-dn-Jmj">
+            <objects>
+                <tabBarController id="L3A-Dw-XYd" customClass="TabVC" customModule="FontBlasterExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="AzT-dc-Sbo">
+                        <barButtonItem key="rightBarButtonItem" title="Load fonts" style="done" id="8lZ-K6-fma">
+                            <connections>
+                                <action selector="didPressB" destination="L3A-Dw-XYd" id="Xos-W4-0ZR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yRZ-vW-gUt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Aao-Ix-cyb" kind="relationship" relationship="viewControllers" id="15h-CK-w86"/>
+                        <segue destination="C6f-me-lg6" kind="relationship" relationship="viewControllers" id="WhB-uR-i1p"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbu-Oi-m54" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-626" y="-168"/>
         </scene>
     </scenes>
 </document>
