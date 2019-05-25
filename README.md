@@ -31,7 +31,8 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 ### CocoaPods
 ```ruby
-pod 'FontBlaster' # Swift 4.2
+pod 'FontBlaster' # Swift 5.0
+pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.2' # Swift 4.2
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.1' # Swift 4.1
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.2
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.1
@@ -39,7 +40,8 @@ pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :b
 
 ### Carthage
 ```swift
-github "ArtSabintsev/FontBlaster" // Swift 4.2
+github "ArtSabintsev/FontBlaster" // Swift 5.0
+github "ArtSabintsev/FontBlaster" "swift4.2" // Swift 4.2
 github "ArtSabintsev/FontBlaster" "swift4.1" // Swift 4.1
 github "ArtSabintsev/FontBlaster" "swift3.2" // Swift 3.2
 github "ArtSabintsev/FontBlaster" "swift3.1" // Swift 3.1
