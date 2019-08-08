@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Siren",
+    name: "FontBlaster",
     products: [.library(name: "FontBlaster", targets: ["FontBlaster"])],
     targets: [.target(name: "FontBlaster", path: "Sources")]
 )
