@@ -23,6 +23,7 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 | Swift Version |  Branch Name  | Will Continue to Receive Updates?
 | ------------- | ------------- |  -------------
+| 5.1  | swift5.1 | **Yes**
 | 5.0  | master   | **Yes**
 | 4.2  | swift4.2 | No
 | 4.1  | swift4.1 | No
