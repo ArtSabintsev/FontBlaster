@@ -2,7 +2,7 @@
 
 ### Programmatically load custom fonts into your iOS and tvOS app.
 
-![Swift Support](https://img.shields.io/badge/Swift-5.0%2C%204.2%2C%204.1%2C%203.2%2C%203.1-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
+![Swift Support](https://img.shields.io/badge/Swift-5.1%2C%205.0%2C%204.2%2C%204.1%2C%203.2%2C%203.1-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster)  [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ---
 
@@ -23,8 +23,8 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 | Swift Version |  Branch Name  | Will Continue to Receive Updates?
 | ------------- | ------------- |  -------------
-| 5.1  | swift5.1 | **Yes**
-| 5.0  | swift5.0   | No
+| 5.1  | master | **Yes**
+| 5.0  | swift5.0 | No
 | 4.2  | swift4.2 | No
 | 4.1  | swift4.1 | No
 | 3.2  | swift3.2 | No
