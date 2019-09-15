@@ -1,5 +1,0 @@
-version: "Apple Swift version 5.1 (swiftlang-1100.0.270.13 clang-1100.0.33.7)"
-options: "c90b957a1ae0c6e99c2208a71fc4367c"
-build_time: [1568521422, 14201000]
-inputs:
-  "/Users/Arthur/Documents/oss/fontblaster/Sources/FontBlaster.swift": !dirty [1551015240, 295164455]
