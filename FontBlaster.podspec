@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 # Version
-s.version       = "5.1.1"
-s.swift_version = "5.2"
+s.version       = "5.1.2"
+s.swift_version = "5.3"
 
 # Meta
 s.name         = "FontBlaster"
