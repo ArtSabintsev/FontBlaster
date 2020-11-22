@@ -1,10 +1,3 @@
-GIT
-  remote: https://github.com/CocoaPods/fourflusher
-  revision: ae209be27d4514bbef082e8ef8e05b482c7c1299
-  branch: master
-  specs:
-    fourflusher (2.3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -64,6 +57,7 @@ GEM
     ethon (0.12.0)
       ffi (>= 1.3.0)
     ffi (1.13.1)
+    fourflusher (2.3.1)
     fuzzy_match (2.0.4)
     gh_inspector (1.1.3)
     httpclient (2.8.3)
@@ -94,7 +88,6 @@ PLATFORMS
 
 DEPENDENCIES
   cocoapods
-  fourflusher!
 
 BUNDLED WITH
    2.1.4
