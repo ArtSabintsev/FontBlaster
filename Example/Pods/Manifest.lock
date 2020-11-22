@@ -1,0 +1,16 @@
+PODS:
+  - FontBlaster (5.1.1)
+
+DEPENDENCIES:
+  - FontBlaster (from `../`)
+
+EXTERNAL SOURCES:
+  FontBlaster:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FontBlaster: 1a2dfe863520ecbbac8441e0b41130edd7358301
+
+PODFILE CHECKSUM: 03adfc6632615aa337717e85ed4772996a6949e2
+
+COCOAPODS: 1.10.0
