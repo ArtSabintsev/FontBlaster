@@ -12,7 +12,6 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 
 ## Features
 - [x] CocoaPods Support
-- [x] Carthage Support
 - [x] Swift PM Support
 - [x] Automatically imports fonts from `Bundle.main`
 - [x] Able to import fonts from remote bundles
@@ -38,16 +37,6 @@ pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :b
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.1' # Swift 4.1
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.2
 pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.1
-```
-
-### Carthage
-```swift
-github "ArtSabintsev/FontBlaster" // Swift 5.1+
-github "ArtSabintsev/FontBlaster" "swift5.0" // Swift 5.0
-github "ArtSabintsev/FontBlaster" "swift4.2" // Swift 4.2
-github "ArtSabintsev/FontBlaster" "swift4.1" // Swift 4.1
-github "ArtSabintsev/FontBlaster" "swift3.2" // Swift 3.2
-github "ArtSabintsev/FontBlaster" "swift3.1" // Swift 3.1
 ```
 
 ### Swift Package Manager
