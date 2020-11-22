@@ -16,7 +16,6 @@ Say goodbye to importing custom fonts via property lists as **FontBlaster** auto
 - [x] Automatically imports fonts from `Bundle.main`
 - [x] Able to import fonts from remote bundles
 - [x] Sample Project
-- [x] Documentation at http://sabintsev.com/FontBlaster/
 
 ## Installation Instructions
 
