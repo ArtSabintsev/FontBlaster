@@ -14,7 +14,6 @@ import UIKit
 // MARK: - FontBlaster
 
 final public class FontBlaster {
-
     fileprivate enum SupportedFontExtensions: String {
         case TrueTypeFont = ".ttf"
         case OpenTypeFont = ".otf"
@@ -55,12 +54,12 @@ private extension FontBlaster {
     /// Loads all fonts found in a bundle.
     ///
     /// - Parameter path: The absolute path to the bundle.
-    class func loadFontsForBundle(withPath path: String) {
+    final class func loadFontsForBundle(withPath path: String) {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path) as [String]
             let loadedFonts = fonts(fromPath: path, withContents: contents)
             if !loadedFonts.isEmpty {
-                for font in loadedFonts {
+                loadedFonts.forEach { font in
                     loadFont(font: font)
                 }
             } else {
@@ -74,10 +73,10 @@ private extension FontBlaster {
     /// Loads all fonts found in a bundle that is loaded within another bundle.
     ///
     /// - Parameter path: The absolute path to the bundle.
-    class func loadFontsFromBundlesFoundInBundle(path: String) {
+    final class func loadFontsFromBundlesFoundInBundle(path: String) {
         do {
             let contents = try FileManager.default.contentsOfDirectory(atPath: path)
-            for item in contents {
+            contents.forEach { item in
                 if let url = URL(string: path),
                     item.contains(".bundle") {
                     let urlPathString = url.appendingPathComponent(item).absoluteString
@@ -92,7 +91,7 @@ private extension FontBlaster {
     /// Loads a specific font.
     ///
     /// - Parameter font: The font to load.
-    class func loadFont(font: Font) {
+    final class func loadFont(font: Font) {
         let fontPath: FontPath = font.path
         let fontName: FontName = font.name
         let fontExtension: FontExtension = font.ext
@@ -102,21 +101,12 @@ private extension FontBlaster {
         if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
-            /// Fixes deadlocking issue caused by `let fontRef = CGFont(dataProvider)`.
-            /// Temporary fix until rdar://18778790 is addressed.
-            /// Open Radar at http://www.openradar.me/18778790
-            /// Discussion at https://github.com/ArtSabintsev/FontBlaster/issues/19
-            _ = UIFont()
-
             let fontRef = CGFont(dataProvider)
 
-            if CTFontManagerRegisterGraphicsFont(fontRef!, &fontError) {
-
-                if let postScriptName = fontRef?.postScriptName {
+            if CTFontManagerRegisterGraphicsFont(fontRef!, &fontError),
+               let postScriptName = fontRef?.postScriptName {
                     printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
                     loadedFonts.append(String(postScriptName))
-                }
-
             } else if let fontError = fontError?.takeRetainedValue() {
                 let errorDescription = CFErrorCopyDescription(fontError)
                 printDebugMessage(message: "Failed to load font '\(fontName)': \(String(describing: errorDescription))")
@@ -143,7 +133,7 @@ private extension FontBlaster {
     ///     - contents: The contents of an Bundle as an array of String objects.
     /// 
     /// - Returns: A an array of Font objects.
-    class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
+    final class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
         var fonts = [Font]()
         for fontName in contents {
             var parsedFont: (FontName, FontExtension)?
@@ -166,7 +156,7 @@ private extension FontBlaster {
     /// - Parameter name: The name of the font.
     /// 
     /// - Returns: A tuple with the font's name and extension.
-    class func font(fromName name: String) -> (FontName, FontExtension) {
+    final class func font(fromName name: String) -> (FontName, FontExtension) {
         let components = name.split{$0 == "."}.map { String($0) }
         return (components[0], components[1])
     }
@@ -174,7 +164,7 @@ private extension FontBlaster {
     /// Prints debug messages to the console if debugEnabled is set to true.
     ///
     /// - Parameter message: The status to print to the console.
-    class func printDebugMessage(message: String) {
+    final class func printDebugMessage(message: String) {
         if debugEnabled == true {
             print("[FontBlaster]: \(message)")
         }
