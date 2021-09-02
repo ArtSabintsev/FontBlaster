@@ -1,6 +1,6 @@
 # FontBlaster
 
-### Programmatically load custom fonts into your iOS and tvOS app.
+### Programmatically load custom fonts into your iOS, macOS, and tvOS app.
 
 ![Swift Support](https://img.shields.io/badge/Swift-5.3-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20macOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
