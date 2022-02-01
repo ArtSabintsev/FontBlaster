@@ -100,10 +100,13 @@ private extension FontBlaster {
         if let fontData = try? Data(contentsOf: fontFileURL) as CFData,
             let dataProvider = CGDataProvider(data: fontData) {
 
-            let fontRef = CGFont(dataProvider)
+            guard let fontRef = CGFont(dataProvider) else {
+                printDebugMessage(message: "Failed to load font: '\(fontName)': fontRef is nil")
+                return
+            }
 
-            if CTFontManagerRegisterGraphicsFont(fontRef!, &fontError),
-               let postScriptName = fontRef?.postScriptName {
+            if CTFontManagerRegisterGraphicsFont(fontRef, &fontError),
+               let postScriptName = fontRef.postScriptName {
                     printDebugMessage(message: "Successfully loaded font: '\(postScriptName)'.")
                     loadedFonts.append(String(postScriptName))
             } else if let fontError = fontError?.takeRetainedValue() {
