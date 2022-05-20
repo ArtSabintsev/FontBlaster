@@ -136,17 +136,32 @@ private extension FontBlaster {
     /// 
     /// - Returns: A an array of Font objects.
     final class func fonts(fromPath path: String, withContents contents: [String]) -> [Font] {
+        printDebugMessage(message: "\nScanning \(path) with contents: \n \(contents)")
         var fonts = [Font]()
-        for fontName in contents {
+        for fileName in contents {
             var parsedFont: (FontName, FontExtension)?
 
-            if fontName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fontName.contains(FontBlaster.SupportedFontExtensions.OpenTypeFont.rawValue) {
-                parsedFont = font(fromName: fontName)
+            if fileName.contains(SupportedFontExtensions.TrueTypeFont.rawValue) || fileName.contains(FontBlaster.SupportedFontExtensions.OpenTypeFont.rawValue) {
+                parsedFont = font(fromName: fileName)
             }
 
             if let parsedFont = parsedFont {
                 let font: Font = (path, parsedFont.0, parsedFont.1)
                 fonts.append(font)
+            }
+
+            let fileURL = URL(fileURLWithPath: "\(path)/\(fileName)")
+            let isDir = (
+                try? fileURL.resourceValues(forKeys: [.isDirectoryKey]).isDirectory
+            ) ?? false
+            
+            if isDir {
+                let contents: [String] = (
+                    try? FileManager.default.contentsOfDirectory(atPath: fileURL.path)
+                ) ?? []
+                let subDirFonts = Self.fonts(fromPath: fileURL.path,
+                                             withContents: contents)
+                fonts.append(contentsOf: subDirFonts)
             }
         }
 
