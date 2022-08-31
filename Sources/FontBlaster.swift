@@ -45,6 +45,15 @@ final public class FontBlaster {
         loadFontsFromBundlesFoundInBundle(path: path)
         handler?(loadedFonts)
     }
+    
+    @available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
+    public class func blast(bundle: Bundle = Bundle.main) async -> [String] {
+        return await withCheckedContinuation { continuation in
+            blast(bundle: bundle) { fonts in
+                continuation.resume(returning: fonts)
+            }
+        }
+    }
 }
 
 // MARK: - Helpers (Font Loading)
