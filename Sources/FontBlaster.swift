@@ -46,6 +46,7 @@ final public class FontBlaster {
         handler?(loadedFonts)
     }
     
+    @available(swift 5.5)
     @available(iOS 13.0, tvOS 13.0, macOS 10.15, *)
     public class func blast(bundle: Bundle = Bundle.main) async -> [String] {
         return await withCheckedContinuation { continuation in
