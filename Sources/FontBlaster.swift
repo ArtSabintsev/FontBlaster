@@ -174,8 +174,13 @@ private extension FontBlaster {
     /// 
     /// - Returns: A tuple with the font's name and extension.
     final class func font(fromName name: String) -> (FontName, FontExtension) {
-        let components = name.split{$0 == "."}.map { String($0) }
-        return (components[0], components[components.count - 1])
+        guard let lastDotIndex = name.lastIndex(of: ".") else {
+            printDebugMessage(message: "Invalid font name format")
+            return ("", "")
+        }
+        let fontName = String(name.prefix(upTo: lastDotIndex))
+        let fontExtension = String(name.suffix(from: name.index(after: lastDotIndex)))
+        return (fontName, fontExtension)
     }
 
     /// Prints debug messages to the console if debugEnabled is set to true.
