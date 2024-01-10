@@ -175,7 +175,7 @@ private extension FontBlaster {
     /// - Returns: A tuple with the font's name and extension.
     final class func font(fromName name: String) -> (FontName, FontExtension) {
         let components = name.split{$0 == "."}.map { String($0) }
-        return (components[0], components[1])
+        return (components[0], components[components.count - 1])
     }
 
     /// Prints debug messages to the console if debugEnabled is set to true.
