@@ -6,9 +6,6 @@
 
 ---
 
-## About
-
-Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's Bundles with one line of code.
 
 ## Features
 - [x] CocoaPods Support
