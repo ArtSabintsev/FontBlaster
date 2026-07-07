@@ -2,7 +2,7 @@
 
 ### Programmatically load custom fonts into your iOS, macOS, and tvOS app.
 
-![Swift Support](https://img.shields.io/badge/Swift-5.3-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20macOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![CocoaPods](https://img.shields.io/cocoapods/v/FontBlaster.svg)](https://cocoapods.org/pods/FontBlaster) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
+![Swift Support](https://img.shields.io/badge/Swift-5.9%2B-orange.svg) ![Platform](https://img.shields.io/badge/Platforms-iOS%20%7c%20macOS%20%7c%20tvOS%20-lightgray.svg?style=flat) [![SwiftPM Compatible](https://img.shields.io/badge/SwiftPM-Compatible-brightgreen.svg)](https://swift.org/package-manager/)
 
 ---
 
@@ -11,36 +11,24 @@
 Say goodbye to importing custom fonts via property lists as **FontBlaster** automatically imports and loads all fonts in your app's Bundles with one line of code.
 
 ## Features
-- [x] CocoaPods Support
-- [x] Swift PM Support
+- [x] Swift Package Manager Support
 - [x] Automatically imports fonts from `Bundle.main`
 - [x] Able to import fonts from remote bundles
+- [x] Scans subdirectories and nested bundles recursively
+- [x] Supports `.ttf`, `.otf`, and `.ttc` font files
 - [x] Sample Project
+
+## Requirements
+
+- iOS 17.0+ / tvOS 17.0+ / macOS 14.0+
+- Swift 5.9+
 
 ## Installation Instructions
 
-| Swift Version |  Branch Name  | Will Continue to Receive Updates?
-| ------------- | ------------- |  -------------
-| 5.1+ | master | **Yes**
-| 5.0  | swift5.0 | No
-| 4.2  | swift4.2 | No
-| 4.1  | swift4.1 | No
-| 3.2  | swift3.2 | No
-| 3.1  | swift3.1 | No
-
-### CocoaPods
-```ruby
-pod 'FontBlaster' # Swift 5.1+
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift5.0' # Swift 5.0
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.2' # Swift 4.2
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift4.1' # Swift 4.1
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.2
-pod 'FontBlaster', :git => 'https://github.com/ArtSabintsev/FontBlaster.git', :branch => 'swift3.2' # Swift 3.1
-```
-
 ### Swift Package Manager
-``` swift
-.Package(url: "https://github.com/ArtSabintsev/FontBlaster.git", majorVersion: 4)
+
+```swift
+.package(url: "https://github.com/ArtSabintsev/FontBlaster.git", from: "6.0.0")
 ```
 
 ### Manual
@@ -56,13 +44,13 @@ Typically, all fonts are automatically found in `Bundle.main`. Even if you have 
 FontBlaster.blast() // Defaults to Bundle.main if no arguments are passed
 ```
 
-If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `Bundle` in the `blast(_:)` method:
+If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `Bundle` in the `blast(bundle:)` method:
 
 ```Swift
 FontBlaster.blast(bundle:) // Takes one argument of type Bundle, or as mentioned above, defaults to Bundle.main if no arguments are passed
 ```
 
-If you need a list of all of the loaded fonts, an overloaded version of the `blast(_:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `Bundle` or defaults to `Bundle.main` if no argument is passed.
+If you need a list of all of the loaded fonts, an overloaded version of the `blast(bundle:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `Bundle` or defaults to `Bundle.main` if no argument is passed.
 
 ```Swift
 
@@ -77,7 +65,7 @@ FontBlaster.blast(bundle:) { (fonts) in
 }
 ```
 
-To turn on console debug statements, simply set `debugEnabled() = true` **before** calling either `blast()` method:
+To turn on console debug statements, simply set `debugEnabled` to `true` **before** calling either `blast()` method:
 
 ```Swift
 FontBlaster.debugEnabled = true
