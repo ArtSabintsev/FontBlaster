@@ -3,12 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0944CE7421492C1E00304C13 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0944CE7321492C1E00304C13 /* TableViewController.swift */; };
-		4E983EB5AEA134488A449352 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9845CABA35277D419396DD0A /* Pods_Example.framework */; };
+		0A0000012E1A000000000001 /* FontBlaster in Frameworks */ = {isa = PBXBuildFile; productRef = 0A0000022E1A000000000002 /* FontBlaster */; };
 		554B835E1E6AABCE00798F7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 554B83561E6AABCE00798F7A /* AppDelegate.swift */; };
 		554B835F1E6AABCE00798F7A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 554B83571E6AABCE00798F7A /* LaunchScreen.xib */; };
 		554B83601E6AABCE00798F7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 554B83591E6AABCE00798F7A /* Main.storyboard */; };
@@ -57,10 +57,7 @@
 		554B836D1E6AABD400798F7A /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		554B836E1E6AABD400798F7A /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		554B836F1E6AABD400798F7A /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
-		73126FAD9648975A798AD16B /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		8E7CBE8B1AF9BD7200009618 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9845CABA35277D419396DD0A /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD5FA3AAC9449DC33E3592A4 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E983EB5AEA134488A449352 /* Pods_Example.framework in Frameworks */,
+				0A0000012E1A000000000001 /* FontBlaster in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,22 +104,11 @@
 			path = OpenSans;
 			sourceTree = SOURCE_ROOT;
 		};
-		8BAB17D9FCF0A0E8DC16DFE0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DD5FA3AAC9449DC33E3592A4 /* Pods-Example.debug.xcconfig */,
-				73126FAD9648975A798AD16B /* Pods-Example.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		8E7CBE821AF9BD7200009618 = {
 			isa = PBXGroup;
 			children = (
 				554B83551E6AABCE00798F7A /* Example */,
 				8E7CBE8C1AF9BD7200009618 /* Products */,
-				8BAB17D9FCF0A0E8DC16DFE0 /* Pods */,
-				9035FD18015D6EBA9BE6751C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -134,14 +120,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9035FD18015D6EBA9BE6751C /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9845CABA35277D419396DD0A /* Pods_Example.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,18 +127,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8E7CBEAA1AF9BD7200009618 /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				05634DF7B5F596F2F82AB670 /* [CP] Check Pods Manifest.lock */,
 				8E7CBE871AF9BD7200009618 /* Sources */,
 				8E7CBE881AF9BD7200009618 /* Frameworks */,
 				8E7CBE891AF9BD7200009618 /* Resources */,
 				550697A71C685178008C5BAF /* Embed Frameworks */,
-				5A65ACC7774127F586EB7B02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Example;
+			packageProductDependencies = (
+				0A0000022E1A000000000002 /* FontBlaster */,
+			);
 			productName = "Font Blaster Sample Project";
 			productReference = 8E7CBE8B1AF9BD7200009618 /* Example.app */;
 			productType = "com.apple.product-type.application";
@@ -193,6 +172,9 @@
 				Base,
 			);
 			mainGroup = 8E7CBE821AF9BD7200009618;
+			packageReferences = (
+				0A0000032E1A000000000003 /* XCLocalSwiftPackageReference ".." */,
+			);
 			productRefGroup = 8E7CBE8C1AF9BD7200009618 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -225,49 +207,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		05634DF7B5F596F2F82AB670 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5A65ACC7774127F586EB7B02 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FontBlaster/FontBlaster.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontBlaster.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8E7CBE871AF9BD7200009618 /* Sources */ = {
@@ -350,12 +289,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -401,22 +340,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		8E7CBEAB1AF9BD7200009618 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD5FA3AAC9449DC33E3592A4 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sabintsev.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -426,12 +364,11 @@
 		};
 		8E7CBEAC1AF9BD7200009618 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 73126FAD9648975A798AD16B /* Pods-Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Sabintsev.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -462,6 +399,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		0A0000032E1A000000000003 /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0A0000022E1A000000000002 /* FontBlaster */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FontBlaster;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8E7CBE831AF9BD7200009618 /* Project object */;
 }
