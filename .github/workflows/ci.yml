@@ -40,3 +40,19 @@ jobs:
 
       - name: Run tests
         run: swift test
+
+  test-ios:
+    name: Test (iOS Simulator)
+    runs-on: macos-15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run tests
+        run: >
+          xcodebuild test
+          -scheme FontBlaster
+          -destination 'platform=iOS Simulator,name=iPhone 16'
+          CODE_SIGNING_ALLOWED=NO
+        env:
+          NSUnbufferedIO: YES

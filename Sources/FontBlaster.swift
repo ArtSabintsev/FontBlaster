@@ -11,7 +11,6 @@ import Foundation
 
 // MARK: - FontBlaster
 
-@MainActor
 public final class FontBlaster {
     /// The font file types supported by FontBlaster.
     private enum SupportedFontExtension: String {
@@ -20,11 +19,26 @@ public final class FontBlaster {
         case trueTypeCollection = "ttc"
     }
 
+    /// Lock-protected mutable state, so `blast()` may be called from any thread.
+    private final class State: @unchecked Sendable {
+        let lock = NSLock()
+        var debugEnabled = false
+        var loadedFonts: [String] = []
+    }
+
+    private static let state = State()
+
     /// Toggles debug print() statements.
-    public static var debugEnabled = false
+    public static var debugEnabled: Bool {
+        get { state.lock.withLock { state.debugEnabled } }
+        set { state.lock.withLock { state.debugEnabled = newValue } }
+    }
 
     /// A list of the loaded fonts.
-    public static var loadedFonts: [String] = []
+    public static var loadedFonts: [String] {
+        get { state.lock.withLock { state.loadedFonts } }
+        set { state.lock.withLock { state.loadedFonts = newValue } }
+    }
 
     /// Loads all fonts found in a specific bundle. If no value is entered, it defaults to the main bundle.
     public class func blast(bundle: Bundle = Bundle.main) {
@@ -32,6 +46,8 @@ public final class FontBlaster {
     }
 
     /// Loads all fonts found in a specific bundle. If no value is entered, it defaults to the main bundle.
+    ///
+    /// Registered fonts are file-backed: do not move or delete a font file while it remains registered.
     ///
     /// - Parameters:
     ///   - bundle: The bundle to scan for fonts.
@@ -54,7 +70,8 @@ private extension FontBlaster {
         let contents: [URL]
         do {
             contents = try FileManager.default.contentsOfDirectory(at: directoryURL,
-                                                                   includingPropertiesForKeys: [.isDirectoryKey])
+                                                                   includingPropertiesForKeys: [.isDirectoryKey],
+                                                                   options: [.skipsHiddenFiles])
         } catch {
             printDebugMessage("There was an error scanning \(directoryURL.path): \(error)")
             return
@@ -72,13 +89,20 @@ private extension FontBlaster {
 
     /// Registers a font file with the font manager and records the PostScript name of every font it contains.
     ///
+    /// A font that is already registered (in this or an earlier launch of the process) is treated as
+    /// loaded, not as a failure, so its names are still recorded.
+    ///
     /// - Parameter fontURL: The file URL of the font to register.
     class func loadFont(at fontURL: URL) {
         var registrationError: Unmanaged<CFError>?
-        guard CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, &registrationError) else {
-            let description = (registrationError?.takeRetainedValue()).map { String(describing: $0) } ?? "an unknown error occurred"
-            printDebugMessage("Failed to load font '\(fontURL.lastPathComponent)': \(description)")
-            return
+        if !CTFontManagerRegisterFontsForURL(fontURL as CFURL, .process, &registrationError) {
+            let error = registrationError?.takeRetainedValue()
+            guard let error, isAlreadyRegistered(error) else {
+                let description = error.map { String(describing: $0) } ?? "an unknown error occurred"
+                printDebugMessage("Failed to load font '\(fontURL.lastPathComponent)': \(description)")
+                return
+            }
+            printDebugMessage("Font '\(fontURL.lastPathComponent)' is already registered.")
         }
 
         guard let descriptors = CTFontManagerCreateFontDescriptorsFromURL(fontURL as CFURL) as? [CTFontDescriptor] else {
@@ -88,8 +112,31 @@ private extension FontBlaster {
 
         for descriptor in descriptors {
             if let postScriptName = CTFontDescriptorCopyAttribute(descriptor, kCTFontNameAttribute) as? String {
-                loadedFonts.append(postScriptName)
+                recordLoadedFont(postScriptName)
                 printDebugMessage("Successfully loaded font: '\(postScriptName)'.")
+            }
+        }
+    }
+
+    /// Whether a registration error means the font is already available to the process.
+    ///
+    /// - Parameter error: The error returned by font registration.
+    class func isAlreadyRegistered(_ error: CFError) -> Bool {
+        guard CFErrorGetDomain(error) as String == kCTFontManagerErrorDomain as String else {
+            return false
+        }
+        let code = CFErrorGetCode(error)
+        return code == CTFontManagerError.alreadyRegistered.rawValue
+            || code == CTFontManagerError.duplicatedName.rawValue
+    }
+
+    /// Appends a font name to `loadedFonts` if it is not already recorded.
+    ///
+    /// - Parameter name: The PostScript name of the loaded font.
+    class func recordLoadedFont(_ name: String) {
+        state.lock.withLock {
+            if !state.loadedFonts.contains(name) {
+                state.loadedFonts.append(name)
             }
         }
     }

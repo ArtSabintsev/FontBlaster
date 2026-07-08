@@ -47,7 +47,7 @@ FontBlaster.blast() // Defaults to Bundle.main if no arguments are passed
 If you are loading from a bundle that isn't found inside your app's `mainBundle`, simply pass a reference to your `Bundle` in the `blast(bundle:)` method:
 
 ```Swift
-FontBlaster.blast(bundle:) // Takes one argument of type Bundle, or as mentioned above, defaults to Bundle.main if no arguments are passed
+FontBlaster.blast(bundle: myCustomBundle)
 ```
 
 If you need a list of all of the loaded fonts, an overloaded version of the `blast(bundle:)` method has a completion handler that returns just that. Just like the original method, this method takes either a custom `Bundle` or defaults to `Bundle.main` if no argument is passed.
@@ -55,15 +55,17 @@ If you need a list of all of the loaded fonts, an overloaded version of the `bla
 ```Swift
 
 // Defaults to Bundle.main as no argument is passed
-FontBlaster.blast() { (fonts) in
+FontBlaster.blast() { fonts in
   print(fonts) // fonts is an array of Strings containing font names
 }
 
 // Custom bundle is passed as argument
-FontBlaster.blast(bundle:) { (fonts) in
+FontBlaster.blast(bundle: myCustomBundle) { fonts in
   print(fonts) // fonts is an array of Strings containing font names
 }
 ```
+
+Registered fonts are file-backed, so don't move or delete a font file after it has been loaded.
 
 To turn on console debug statements, simply set `debugEnabled` to `true` **before** calling either `blast()` method:
 
